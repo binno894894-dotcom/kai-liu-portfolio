@@ -36,7 +36,7 @@ export const apps: App[] = [
       '無干擾廣告，注重隱私'
     ],
     technologies: ['Android', 'Kotlin', 'Jetpack Compose', 'Material 3'],
-    downloadUrl: 'https://downloads.example.com/apps/device-box/device-box-1.0.0.apk',
+    downloadUrl: 'https://downloads.kkleon.com/DeviceKit.apk',
     githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-09'
