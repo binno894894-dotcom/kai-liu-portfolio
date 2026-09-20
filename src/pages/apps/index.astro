@@ -1,0 +1,101 @@
+---
+// apps/index.astro - Easlo Visual Overhaul
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { apps } from '../../data/apps';
+---
+
+<BaseLayout
+  title="Apps — Kai Liu"
+  description="Minimalist Android applications crafted with Jetpack Compose."
+>
+  <div class="space-y-12 sm:space-y-16 py-2">
+    <!-- Header -->
+    <header class="space-y-2">
+      <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+        Portfolio
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+        Apps
+      </h1>
+      <p class="text-sm font-mono text-zinc-500 dark:text-zinc-400">
+        Minimalist Android apps &bull; Jetpack Compose
+      </p>
+    </header>
+
+    <!-- Apps List (Visual Bento Style) -->
+    <div class="space-y-6">
+      {
+        apps.map((app) => (
+          <article class="group rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-8 transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+              
+              <!-- Icon & Details -->
+              <div class="flex items-start sm:items-center gap-4">
+                <a href={`/apps/${app.slug}`} class="shrink-0 block">
+                  <img
+                    src={app.icon}
+                    alt={`${app.name} icon`}
+                    class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 transition-transform duration-200 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <a
+                      href={`/apps/${app.slug}`}
+                      class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100 hover:underline"
+                    >
+                      {app.name}
+                    </a>
+                    <span class="px-2 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                      v{app.version}
+                    </span>
+                  </div>
+
+                  <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md">
+                    {app.tagline}
+                  </p>
+
+                  <!-- Tech chips -->
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    {app.technologies.slice(0, 3).map((tech) => (
+                      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end pt-3 sm:pt-0 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-800/60">
+                <a
+                  href={`/apps/${app.slug}`}
+                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors"
+                >
+                  <span>Preview</span>
+                  <span class="text-zinc-400">&rarr;</span>
+                </a>
+
+                <a
+                  href={app.downloadUrl}
+                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-opacity"
+                >
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>APK</span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+

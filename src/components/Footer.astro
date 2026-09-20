@@ -1,0 +1,41 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-20 pt-8 pb-12 border-t border-zinc-100 dark:border-zinc-900/90 text-sm text-zinc-500 dark:text-zinc-500">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs sm:text-sm">
+      &copy; {currentYear} Kai Liu. Built with Astro &amp; Cloudflare.
+    </p>
+
+    <div class="flex items-center gap-4 text-xs sm:text-sm">
+      <a
+        href="https://github.com/binno894894-dotcom"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <span>GitHub</span>
+        <svg class="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+        </svg>
+      </a>
+
+      <span class="text-zinc-300 dark:text-zinc-800">&bull;</span>
+
+      <a
+        href="https://www.threads.com/@stu6yen9ineer"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <span>Threads</span>
+        <svg class="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="28" fill="#18181b"/>
+  <rect x="8" y="8" width="112" height="112" rx="20" stroke="#27272a" stroke-width="2"/>
+  <!-- Phone outline inside box -->
+  <rect x="42" y="26" width="44" height="76" rx="8" stroke="#f4f4f5" stroke-width="3.5" fill="#09090b"/>
+  <!-- Screen speaker / camera notch -->
+  <line x1="58" y1="34" x2="70" y2="34" stroke="#71717a" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Screen content bars (minimalist device info indicator) -->
+  <rect x="50" y="44" width="28" height="4" rx="2" fill="#a1a1aa"/>
+  <rect x="50" y="53" width="20" height="4" rx="2" fill="#71717a"/>
+  <rect x="50" y="62" width="24" height="4" rx="2" fill="#71717a"/>
+  <!-- Chip/Specs pulse icon -->
+  <circle cx="64" cy="84" r="5" stroke="#f4f4f5" stroke-width="2.5"/>
+  <circle cx="64" cy="84" r="1.5" fill="#f4f4f5"/>
+</svg>
+

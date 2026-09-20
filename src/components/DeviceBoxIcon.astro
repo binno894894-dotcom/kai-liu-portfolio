@@ -1,0 +1,44 @@
+---
+// DeviceBoxIcon.astro - Easlo-style bold monochrome icon
+interface Props {
+  className?: string;
+}
+
+const { className = 'w-16 h-16' } = Astro.props;
+---
+
+<svg
+  class={`${className} text-zinc-900 dark:text-zinc-100 transition-colors duration-200`}
+  viewBox="0 0 100 100"
+  fill="none"
+>
+  <!-- Phone Outline -->
+  <rect
+    x="22"
+    y="10"
+    width="56"
+    height="80"
+    rx="12"
+    stroke="currentColor"
+    stroke-width="3.5"
+    fill="none"
+  />
+  <!-- Speaker notch -->
+  <line
+    x1="44"
+    y1="18"
+    x2="56"
+    y2="18"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+  <!-- Screen Data Bars -->
+  <rect x="32" y="28" width="36" height="4.5" rx="2.25" fill="currentColor" />
+  <rect x="32" y="38" width="24" height="4.5" rx="2.25" fill="currentColor" />
+  <rect x="32" y="48" width="30" height="4.5" rx="2.25" fill="currentColor" />
+  <!-- Bottom Sensor / Indicator -->
+  <circle cx="50" cy="72" r="5" stroke="currentColor" stroke-width="2.5" />
+  <circle cx="50" cy="72" r="1.5" fill="currentColor" />
+</svg>
+
