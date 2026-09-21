@@ -26,10 +26,9 @@ export const apps: App[] = [
       'Device Box 是一款專注於極簡美學與實用性的 Android 裝置資訊工具。有別於充滿干擾廣告與繁瑣列表的傳統系統檢視工具，Device Box 採用現代 Jetpack Compose 原生架構打造，將複雜的硬體參數與系統狀態重新梳理為優雅、直覺的卡片視圖，讓每位使用者都能輕鬆掌握手機核心規格。',
     version: '1.0.0',
     platform: 'Android',
-    icon: '/apps/device-box-icon.svg',
+    icon: '/apps/device-box-icon.png',
     screenshots: [
       '/apps/device-box/screenshot-1.png',
-      '/apps/device-box/screenshot-2.png',
       '/apps/device-box/screenshot-3.png',
       '/apps/device-box/screenshot-4.png'
     ],

@@ -33,9 +33,11 @@ const { className = '' } = Astro.props;
       <!-- App Header Bar -->
       <div class="flex items-center justify-between pt-1 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-2.5">
         <div class="flex items-center gap-2">
-          <div class="w-5 h-5 rounded-md bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center">
-            <div class="w-2.5 h-2.5 border border-zinc-100 dark:border-zinc-900 rounded-sm"></div>
-          </div>
+          <img
+            src="/apps/device-box-icon.png"
+            alt="Device Box Icon"
+            class="w-5 h-5 rounded-md object-contain"
+          />
           <span class="text-xs font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Device Box</span>
         </div>
         <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
