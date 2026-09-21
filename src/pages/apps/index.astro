@@ -72,7 +72,7 @@ import { apps } from '../../data/apps';
               <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end pt-3 sm:pt-0 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-800/60">
                 <a
                   href={`/apps/${app.slug}`}
-                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors"
+                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800/60 active:scale-[0.97] transition-all"
                 >
                   <span>Preview</span>
                   <span class="text-zinc-400">&rarr;</span>
@@ -81,7 +81,7 @@ import { apps } from '../../data/apps';
                 <a
                   href={app.downloadUrl}
                   download
-                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-opacity"
+                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 active:scale-[0.97] transition-all"
                 >
                   <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -89,6 +89,9 @@ import { apps } from '../../data/apps';
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
                   <span>APK</span>
+                  {app.fileSize && (
+                    <span class="text-[10px] opacity-75 font-mono">({app.fileSize})</span>
+                  )}
                 </a>
               </div>
 

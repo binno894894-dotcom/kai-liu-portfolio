@@ -1,5 +1,6 @@
 ---
-// BaseLayout.astro
+// BaseLayout.astro - ViewTransitions and Smooth Transitions
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -22,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
 ---
 
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,9 +48,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Prevent Flash of Unstyled Content (FOUC) for Theme -->
+    <!-- Astro View Transitions for Seamless Cross-Fade -->
+    <ClientRouter />
+
+    <!-- Prevent Flash of Unstyled Content (FOUC) & Maintain Theme Across Page Swaps -->
     <script is:inline>
-      (function () {
+      function applyTheme() {
         const storedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
@@ -59,17 +63,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
           document.documentElement.classList.remove('dark');
           document.documentElement.style.colorScheme = 'light';
         }
-      })();
+      }
+      applyTheme();
+      document.addEventListener('astro:after-swap', applyTheme);
     </script>
   </head>
-  <body class="min-h-screen flex flex-col text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-800">
+  <body class="min-h-screen flex flex-col text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-800 transition-colors duration-200">
     <div class={containerClass}>
       <Header />
-      <main class="flex-1 w-full">
+      <main class="flex-1 w-full animate-fade-in">
         <slot />
       </main>
       <Footer />
     </div>
   </body>
 </html>
-
