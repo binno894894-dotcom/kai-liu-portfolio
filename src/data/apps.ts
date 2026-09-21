@@ -30,7 +30,8 @@ export const apps: App[] = [
     screenshots: [
       '/apps/device-box/preview-main.png',
       '/apps/device-box/preview-stats.png',
-      '/apps/device-box/preview-floating-v2.png',
+      '/apps/device-box/floating-gauges.png',
+      '/apps/device-box/floating-compact.png',
       '/apps/device-box/preview-capsule.png'
     ],
     features: [

@@ -10,9 +10,10 @@
 >
   <!-- Sun Icon (shown in dark mode, click to switch to light) -->
   <svg
-    class="w-4 h-4 hidden dark:block stroke-current transition-transform duration-200"
+    class="w-4 h-4 hidden dark:block text-zinc-200 hover:text-white transition-transform duration-200"
     viewBox="0 0 24 24"
     fill="none"
+    stroke="currentColor"
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -33,8 +34,9 @@
     class="w-4 h-4 block dark:hidden text-zinc-700 hover:text-zinc-950 transition-transform duration-200"
     viewBox="0 0 24 24"
     fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    <path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
   </svg>
 </button>
 
@@ -43,7 +45,7 @@
     if (window.__themeToggleInitialized) return;
     window.__themeToggleInitialized = true;
 
-    function handleToggle(e) {
+    document.addEventListener('click', function (e) {
       const target = e.target;
       if (!(target instanceof Element)) return;
       const btn = target.closest('[data-theme-toggle-btn]');
@@ -61,8 +63,6 @@
         html.style.colorScheme = 'light';
         try { localStorage.setItem('theme', 'light'); } catch (_) {}
       }
-    }
-
-    document.addEventListener('click', handleToggle);
+    });
   })();
 </script>

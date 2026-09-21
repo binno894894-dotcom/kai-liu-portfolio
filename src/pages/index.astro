@@ -1,5 +1,5 @@
 ---
-// index.astro - Easlo Minimalist Overhaul with "Apps by Kai" & Subtle Transitions
+// index.astro - Easlo Minimalist Overhaul with "Apps by Kai" & Dual Floating Monitor Showcase
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { apps } from '../data/apps';
 
@@ -65,6 +65,7 @@ const featuredApp = apps[0];
 
     <!-- Apps by Kai Showcase Section (Easlo Official Style) -->
     <section class="space-y-6 text-center pt-2">
+      <!-- Centered Header & Subtitle & View All Button -->
       <div class="space-y-3 flex flex-col items-center">
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
           Apps by Kai
@@ -82,6 +83,7 @@ const featuredApp = apps[0];
         </div>
       </div>
 
+      <!-- App Icon Grid / List (Centered) -->
       <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-10 pt-4">
         {
           apps.map((app) => (
@@ -89,6 +91,7 @@ const featuredApp = apps[0];
               href={`/apps/${app.slug}`}
               class="group flex flex-col items-center text-center space-y-3 cursor-pointer"
             >
+              <!-- Large App Icon Container (140px~160px, rounded-[2.2rem]) -->
               <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-[2.2rem] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 flex items-center justify-center p-6 transition-all duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-1 group-hover:shadow-md group-hover:border-zinc-300 dark:group-hover:border-zinc-700 active:scale-95 shadow-xs">
                 <img
                   src={app.icon}
@@ -98,6 +101,7 @@ const featuredApp = apps[0];
                 />
               </div>
 
+              <!-- Labels Below Icon -->
               <div class="space-y-1">
                 <div class="text-sm font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">
                   {app.name}
@@ -123,13 +127,13 @@ const featuredApp = apps[0];
         </span>
       </div>
 
-      <!-- Bento Visual Card: Real Preview of Image 2 (Main) & Image 2 Stats & Image 1 Floating -->
+      <!-- Bento Visual Card: Phone 1 + Phone 2 + Dual Floating Widgets -->
       <div class="group rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-10 transition-all duration-300 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-sm">
         <a href={`/apps/${featuredApp.slug}`} class="block mb-8 hover:opacity-95 transition-opacity">
           <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 py-2">
             
             <!-- Phone 1: Main Screen (01) -->
-            <div class="relative w-full max-w-[240px] sm:max-w-[260px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+            <div class="relative w-full max-w-[230px] sm:max-w-[250px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform duration-300 hover:-translate-y-1">
               <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
               <div class="relative rounded-[32px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
                 <img
@@ -141,9 +145,9 @@ const featuredApp = apps[0];
               </div>
             </div>
 
-            <!-- Phone 2: Stats Screen (02 - User Specified) -->
+            <!-- Phone 2: Stats Screen (02) -->
             {featuredApp.screenshots[1] && (
-              <div class="relative w-full max-w-[240px] sm:max-w-[260px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+              <div class="relative w-full max-w-[230px] sm:max-w-[250px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform duration-300 hover:-translate-y-1">
                 <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
                 <div class="relative rounded-[32px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
                   <img
@@ -156,30 +160,54 @@ const featuredApp = apps[0];
               </div>
             )}
 
-            <!-- Floating Widget -->
-            {featuredApp.screenshots[2] && (
-              <div class="flex flex-col items-center sm:items-start gap-4">
-                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-4 shadow-lg space-y-2.5 w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-200 hover:-translate-y-0.5">
+            <!-- Dual Floating Widgets (Both Gauges & Compact Card) -->
+            <div class="flex flex-col items-center sm:items-start gap-4 w-full max-w-[280px] sm:max-w-[300px]">
+              <!-- Style 1: Gauges Floating Widget -->
+              {featuredApp.screenshots[2] && (
+                <div class="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-3.5 shadow-lg space-y-2 transition-transform duration-200 hover:-translate-y-0.5">
                   <div class="flex items-center justify-between">
-                    <span class="text-[11px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-                      Floating Widget
+                    <span class="text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                      Floating &bull; 圓環儀表
                     </span>
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   </div>
                   <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2 shadow-xs">
                     <img
                       src={featuredApp.screenshots[2]}
-                      alt="Device Box 桌面即時懸浮儀表"
+                      alt="Device Box 桌面即時懸浮儀表 (圓環風格)"
                       class="w-full h-auto object-contain rounded-lg"
                       loading="eager"
                     />
                   </div>
-                  <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
-                    即時監控溫度、CPU、網速、電量、RAM 與更新率
+                  <p class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
+                    即時監控溫度、CPU、網速、電量、RAM
                   </p>
                 </div>
-              </div>
-            )}
+              )}
+
+              <!-- Style 2: Compact Floating Widget -->
+              {featuredApp.screenshots[3] && (
+                <div class="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-3.5 shadow-lg space-y-2 transition-transform duration-200 hover:-translate-y-0.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                      Floating &bull; 簡約卡片
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  </div>
+                  <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2 shadow-xs">
+                    <img
+                      src={featuredApp.screenshots[3]}
+                      alt="Device Box 桌面即時懸浮儀表 (簡約卡片)"
+                      class="w-full h-auto object-contain rounded-lg"
+                      loading="eager"
+                    />
+                  </div>
+                  <p class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
+                    精簡三欄視圖：溫控、負載與速度
+                  </p>
+                </div>
+              )}
+            </div>
 
           </div>
         </a>
@@ -239,6 +267,7 @@ const featuredApp = apps[0];
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <!-- Feature 1: 手機圖示 + 裝置數據 -->
         <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 flex flex-col items-center justify-center text-center gap-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 dark:hover:border-zinc-700">
           <div class="w-11 h-11 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
             <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -251,6 +280,7 @@ const featuredApp = apps[0];
           </span>
         </div>
 
+        <!-- Feature 2: 調色盤/方塊圖示 + 簡約美學 -->
         <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 flex flex-col items-center justify-center text-center gap-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 dark:hover:border-zinc-700">
           <div class="w-11 h-11 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
             <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -265,6 +295,7 @@ const featuredApp = apps[0];
           </span>
         </div>
 
+        <!-- Feature 3: 閃電圖示 + 輕量好用 -->
         <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 flex flex-col items-center justify-center text-center gap-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 dark:hover:border-zinc-700">
           <div class="w-11 h-11 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
             <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
