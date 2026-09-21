@@ -92,6 +92,9 @@ const featureCards = [
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           <span>Download APK</span>
+          {app.fileSize && (
+            <span class="text-[11px] opacity-75 font-mono">({app.fileSize})</span>
+          )}
         </a>
 
         <a
@@ -195,6 +198,7 @@ const featureCards = [
                   </div>
                   <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
                     自由拖曳懸浮窗，即時監控溫度、CPU、電量與下載網速
+                    自由拖曳懸浮窗，即時監控溫度、CPU、網速、電量、RAM 與螢幕更新率
                   </p>
                 </div>
                 <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2.5 shadow-xs flex items-center justify-center">
@@ -202,6 +206,7 @@ const featureCards = [
                     src={app.screenshots[2]}
                     alt="桌面懸浮視窗儀表"
                     class="w-full max-w-[320px] h-auto object-contain rounded-lg"
+                    class="w-full max-w-[360px] h-auto object-contain rounded-lg"
                     loading="eager"
                   />
                 </div>
@@ -289,12 +294,20 @@ const featureCards = [
       </div>
     </section>
 
+    <!-- Tech Stack & Specs (Minimalist Chips) -->
     <!-- Tech Stack (Minimalist Chips) -->
     <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2 flex items-center justify-between">
       <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
         <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          Stack & Specs
           Stack
         </span>
+        {app.fileSize && (
+          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+            Package Size: <strong class="text-zinc-800 dark:text-zinc-200 font-semibold">{app.fileSize}</strong>
+          </span>
+        )}
       </div>
       <div class="flex flex-wrap gap-2">
         {app.technologies.map((tech) => (
@@ -302,6 +315,11 @@ const featureCards = [
             {tech}
           </span>
         ))}
+        {app.fileSize && (
+          <span class="px-2.5 py-1 rounded-lg text-xs font-mono border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300">
+            APK {app.fileSize}
+          </span>
+        )}
       </div>
     </section>
   </div>
