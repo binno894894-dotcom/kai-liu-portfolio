@@ -7,7 +7,6 @@ export interface App {
   version: string;
   platform: string;
   icon: string;
-  fileSize?: string;
   screenshots: string[];
   features: string[];
   technologies: string[];
@@ -28,7 +27,6 @@ export const apps: App[] = [
     version: '1.0.0',
     platform: 'Android',
     icon: '/apps/device-box-icon.png',
-    fileSize: '15.5 MB',
     screenshots: [
       '/apps/device-box/preview-main.png',
       '/apps/device-box/preview-stats.png',
