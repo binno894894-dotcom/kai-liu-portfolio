@@ -110,21 +110,140 @@ const featureCards = [
       </div>
     </header>
 
-    <!-- Core Visual: Centered Device Mockup Preview -->
-    <section class="space-y-4">
-      <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
-        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-          Mockup Preview
-        </span>
-        <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-          Jetpack Compose
-        </span>
-      </div>
+    <!-- Core Visual: Real Device Screenshots & Mockups -->
+    {app.screenshots && app.screenshots.length > 0 ? (
+      <div class="space-y-10">
+        <!-- 1. Phone Frame Showcase (Vertical Screenshots) -->
+        <section class="space-y-4">
+          <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              Interface Preview
+            </span>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+              Android 14+ &bull; Compose
+            </span>
+          </div>
 
-      <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-12">
-        <DeviceMockup />
+          <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 p-6 sm:p-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center justify-center max-w-2xl mx-auto">
+              <!-- Phone 1: Main Dashboard -->
+              <div class="flex flex-col items-center space-y-3">
+                <div class="relative w-full max-w-[270px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
+                  <!-- Punch Hole Camera -->
+                  <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+                  <!-- Screen Container -->
+                  <div class="relative rounded-[32px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
+                    <img
+                      src={app.screenshots[0]}
+                      alt={`${app.name} 主介面`}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                  01 / 系統規格與模式切換
+                </span>
+              </div>
+
+              <!-- Phone 2: Hardware & Battery -->
+              {app.screenshots[1] && (
+                <div class="flex flex-col items-center space-y-3">
+                  <div class="relative w-full max-w-[270px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
+                    <!-- Punch Hole Camera -->
+                    <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+                    <!-- Screen Container -->
+                    <div class="relative rounded-[32px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
+                      <img
+                        src={app.screenshots[1]}
+                        alt={`${app.name} 硬體與電池監控`}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                    02 / 處理器與電池即時數據
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Overlay Features Bento (Horizontal Screenshots: Capsule & Floating Window) -->
+        {(app.screenshots[2] || app.screenshots[3]) && (
+          <section class="space-y-4">
+            <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                System Widgets
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Capsule Card -->
+              {app.screenshots[2] && (
+                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 space-y-3.5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <div class="space-y-1">
+                    <h3 class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                      狀態列即時膠囊
+                    </h3>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+                      常駐狀態列，隨時掌握晶片頻率與溫度
+                    </p>
+                  </div>
+                  <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 shadow-xs">
+                    <img
+                      src={app.screenshots[2]}
+                      alt="狀態列即時膠囊"
+                      class="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              )}
+
+              <!-- Floating Window Card -->
+              {app.screenshots[3] && (
+                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 space-y-3.5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <div class="space-y-1">
+                    <h3 class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                      桌面懸浮監控儀表
+                    </h3>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+                      自由拖曳懸浮窗，遊戲或多工時即時監看
+                    </p>
+                  </div>
+                  <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 shadow-xs">
+                    <img
+                      src={app.screenshots[3]}
+                      alt="桌面懸浮視窗"
+                      class="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
       </div>
-    </section>
+    ) : (
+      <section class="space-y-4">
+        <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            Mockup Preview
+          </span>
+          <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+            Jetpack Compose
+          </span>
+        </div>
+
+        <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-12">
+          <DeviceMockup />
+        </div>
+      </section>
+    )}
 
     <!-- Feature Grid: 2x2 Bento Visual Cards -->
     <section class="space-y-4">

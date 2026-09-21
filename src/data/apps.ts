@@ -27,7 +27,12 @@ export const apps: App[] = [
     version: '1.0.0',
     platform: 'Android',
     icon: '/apps/device-box-icon.svg',
-    screenshots: [],
+    screenshots: [
+      '/apps/device-box/screenshot-1.png',
+      '/apps/device-box/screenshot-2.png',
+      '/apps/device-box/screenshot-3.png',
+      '/apps/device-box/screenshot-4.png'
+    ],
     features: [
       '觀察手機 / 裝置資料',
       '介面好看',
