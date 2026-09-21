@@ -128,11 +128,56 @@ const featuredApp = apps[0];
         </span>
       </div>
 
-      <!-- Bento Visual Card -->
+      <!-- Bento Visual Card: Real Preview of Image 2 & Image 1 -->
       <div class="group rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-10 transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700">
-        <!-- Mockup Visual Display (Centered) -->
+        <!-- Mockup Visual Display (Centered with both screenshots) -->
         <a href={`/apps/${featuredApp.slug}`} class="block mb-8 hover:opacity-95 transition-opacity">
-          <DeviceMockup />
+          <div class="max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 py-2">
+            <!-- 1. Real Phone Mockup Frame (Main Screen) -->
+            <div class="relative w-full max-w-[260px] sm:max-w-[280px] rounded-[42px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform group-hover:scale-[1.01] duration-300">
+              <!-- Punch Hole Camera -->
+              <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+              <!-- Screen Container with Image 2 -->
+              <div class="relative rounded-[32px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
+                <img
+                  src={featuredApp.screenshots[0]}
+                  alt="Device Box 主介面 (Android 16)"
+                  class="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </div>
+
+            <!-- 2. Floating Widget (Image 1) -->
+            <div class="flex flex-col items-center sm:items-start gap-4">
+              <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-4 shadow-lg space-y-2.5 max-w-[240px]">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                    Floating Widget
+                  </span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+                <!-- Image 1 Display -->
+                <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2 shadow-xs">
+                  <img
+                    src={featuredApp.screenshots[1]}
+                    alt="Device Box 桌面即時懸浮儀表"
+                    class="w-full h-auto object-contain rounded-lg"
+                    loading="eager"
+                  />
+                </div>
+                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
+                  即時監控溫度、CPU、電量與網速
+                </p>
+              </div>
+
+              <!-- Capsule Badge -->
+              <div class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+                <span>Android 16 Compose</span>
+              </div>
+            </div>
+          </div>
         </a>
 
         <!-- Minimal Info & Action Bar Below Mockup -->

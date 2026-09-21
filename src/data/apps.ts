@@ -29,8 +29,8 @@ export const apps: App[] = [
     icon: '/apps/device-box-icon.png',
     screenshots: [
       '/apps/device-box/screenshot-1.png',
-      '/apps/device-box/screenshot-3.png',
-      '/apps/device-box/screenshot-4.png'
+      '/apps/device-box/screenshot-4.png',
+      '/apps/device-box/screenshot-3.png'
     ],
     features: [
       '觀察手機 / 裝置資料',
