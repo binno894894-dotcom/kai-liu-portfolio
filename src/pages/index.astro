@@ -1,7 +1,6 @@
 ---
 // index.astro - Easlo Minimalist Overhaul with "Apps by Kai"
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DeviceMockup from '../components/DeviceMockup.astro';
 import { apps } from '../data/apps';
 
 const featuredApp = apps[0];
@@ -128,8 +127,10 @@ const featuredApp = apps[0];
         </span>
       </div>
 
+      <!-- Bento Visual Card -->
       <!-- Bento Visual Card: Real Preview of Image 2 & Image 1 -->
       <div class="group rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-10 transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700">
+        <!-- Mockup Visual Display (Centered) -->
         <!-- Mockup Visual Display (Centered with both screenshots) -->
         <a href={`/apps/${featuredApp.slug}`} class="block mb-8 hover:opacity-95 transition-opacity">
           <div class="max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 py-2">
