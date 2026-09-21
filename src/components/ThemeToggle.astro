@@ -4,9 +4,9 @@
 
 <button
   type="button"
-  id="theme-toggle"
+  data-theme-toggle-btn
   aria-label="切換深淺色模式"
-  class="relative inline-flex items-center justify-center w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+  class="relative inline-flex items-center justify-center w-9 h-9 rounded-xl border border-zinc-200/80 dark:border-zinc-700/60 bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-white/90 dark:hover:bg-zinc-700/70 transition-all duration-150 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 shadow-2xs cursor-pointer select-none"
 >
   <!-- Sun Icon (shown in dark mode) -->
   <svg
@@ -42,19 +42,30 @@
 </button>
 
 <script is:inline>
-  function setupThemeToggle() {
-    const toggle = document.getElementById('theme-toggle');
-    if (!toggle) return;
+  (function () {
+    if (window.__themeToggleInitialized) return;
+    window.__themeToggleInitialized = true;
 
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
-    });
-  }
+    function handleToggle(e) {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const btn = target.closest('[data-theme-toggle-btn]');
+      if (!btn) return;
 
-  // Setup immediately & on Astro page loads
-  setupThemeToggle();
-  document.addEventListener('astro:page-load', setupThemeToggle);
+      e.preventDefault();
+      const html = document.documentElement;
+      const willBeDark = !html.classList.contains('dark');
+      if (willBeDark) {
+        html.classList.add('dark');
+        html.style.colorScheme = 'dark';
+        try { localStorage.setItem('theme', 'dark'); } catch (_) {}
+      } else {
+        html.classList.remove('dark');
+        html.style.colorScheme = 'light';
+        try { localStorage.setItem('theme', 'light'); } catch (_) {}
+      }
+    }
+
+    document.addEventListener('click', handleToggle);
+  })();
 </script>
-

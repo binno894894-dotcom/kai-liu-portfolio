@@ -1,5 +1,5 @@
 ---
-// Header.astro - Easlo-style Header with Avatar & Frosted Mobile Menu
+// Header.astro - Easlo-style Header with Avatar & Liquid Glass Mobile Menu
 import ThemeToggle from './ThemeToggle.astro';
 
 const pathname = Astro.url.pathname;
@@ -43,7 +43,7 @@ const navLinks = [
                 target={link.isExternal ? '_blank' : undefined}
                 rel={link.isExternal ? 'noopener noreferrer' : undefined}
                 class:list={[
-                  'inline-flex items-center gap-1 px-3 py-1.5 rounded-lg transition-all duration-150 active:scale-95',
+                  'inline-flex items-center gap-1 px-3 py-1.5 rounded-lg transition-all duration-150 active:scale-95 select-none',
                   isActive
                     ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/80 font-semibold'
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/40'
@@ -74,7 +74,7 @@ const navLinks = [
       </div>
     </nav>
 
-    <!-- Mobile Hamburger Button (md:hidden) -->
+    <!-- Mobile Navigation Controls (md:hidden) -->
     <div class="flex md:hidden items-center gap-2">
       <ThemeToggle />
       <button
@@ -82,15 +82,15 @@ const navLinks = [
         type="button"
         aria-label="Toggle Menu"
         aria-expanded="false"
-        class="w-9 h-9 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 flex items-center justify-center text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 active:scale-95"
+        class="w-9 h-9 rounded-xl border border-zinc-200/80 dark:border-zinc-700/60 bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md flex items-center justify-center text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-white/90 dark:hover:bg-zinc-700/70 transition-all duration-150 active:scale-90 shadow-2xs cursor-pointer select-none"
       >
-        <!-- Icon: Hamburger -->
+        <!-- Icon: Hamburger (3 lines) -->
         <svg id="icon-menu" class="w-4 h-4 stroke-current transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" y1="7" x2="20" y2="7" />
           <line x1="4" y1="12" x2="20" y2="12" />
           <line x1="4" y1="17" x2="20" y2="17" />
         </svg>
-        <!-- Icon: Close (Hidden initially) -->
+        <!-- Icon: Close ✕ (Hidden initially) -->
         <svg id="icon-close" class="w-4 h-4 stroke-current hidden transition-transform duration-300 rotate-90" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
@@ -102,15 +102,18 @@ const navLinks = [
   <!-- Mobile Backdrop Overlay -->
   <div
     id="mobile-menu-backdrop"
-    class="fixed inset-0 bg-black/25 dark:bg-black/50 backdrop-blur-xs z-40 hidden transition-opacity duration-300 opacity-0 md:hidden"
+    class="fixed inset-0 bg-black/15 dark:bg-black/35 backdrop-blur-[2px] z-40 hidden transition-opacity duration-300 opacity-0 md:hidden"
   ></div>
 
-  <!-- Mobile Frosted Glass Menu Panel -->
+  <!-- Mobile Liquid Glass Menu Panel -->
   <div
     id="mobile-menu-panel"
-    class="fixed inset-x-4 top-20 z-50 rounded-3xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-2xl shadow-2xl p-6 hidden transition-all duration-300 -translate-y-4 opacity-0 md:hidden"
+    class="fixed inset-x-4 top-20 z-50 rounded-[28px] glass-liquid-panel p-5 sm:p-6 hidden transition-all duration-300 -translate-y-3 opacity-0 md:hidden overflow-hidden"
   >
-    <div class="flex flex-col items-center space-y-4 text-center">
+    <!-- Liquid top reflection highlight -->
+    <div class="absolute -top-px inset-x-10 h-px bg-gradient-to-r from-transparent via-white/70 dark:via-white/35 to-transparent pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col items-center space-y-2 text-center">
       {
         navLinks.map((link) => {
           const isActive = !link.isExternal && (currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)));
@@ -120,10 +123,10 @@ const navLinks = [
               target={link.isExternal ? '_blank' : undefined}
               rel={link.isExternal ? 'noopener noreferrer' : undefined}
               class:list={[
-                'w-full py-2.5 rounded-xl text-sm font-medium transition-all duration-150 flex items-center justify-center gap-1.5 active:scale-98',
+                'w-full py-3 px-4 rounded-2xl text-sm font-medium transition-all duration-150 flex items-center justify-center gap-1.5 active:scale-98 select-none',
                 isActive
-                  ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-900 font-semibold'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900/60'
+                  ? 'text-zinc-950 dark:text-white bg-white/70 dark:bg-white/15 font-semibold shadow-xs'
+                  : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-white/40 dark:hover:bg-white/10'
               ]}
             >
               <span>{link.label}</span>
@@ -145,8 +148,9 @@ const navLinks = [
         })
       }
 
-      <div class="w-full pt-2 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-center gap-2">
-        <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">Kai Liu &bull; Minimal Studio</span>
+      <div class="w-full pt-3 mt-1 border-t border-zinc-200/50 dark:border-white/10 flex items-center justify-between px-2">
+        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Theme</span>
+        <ThemeToggle />
       </div>
     </div>
   </div>
@@ -177,7 +181,7 @@ const navLinks = [
       requestAnimationFrame(() => {
         backdrop?.classList.remove('opacity-0');
         backdrop?.classList.add('opacity-100');
-        panel?.classList.remove('-translate-y-4', 'opacity-0');
+        panel?.classList.remove('-translate-y-3', 'opacity-0');
         panel?.classList.add('translate-y-0', 'opacity-100');
       });
     }
@@ -194,7 +198,7 @@ const navLinks = [
       backdrop?.classList.remove('opacity-100');
       backdrop?.classList.add('opacity-0');
       panel?.classList.remove('translate-y-0', 'opacity-100');
-      panel?.classList.add('-translate-y-4', 'opacity-0');
+      panel?.classList.add('-translate-y-3', 'opacity-0');
 
       setTimeout(() => {
         if (!isOpen) {
@@ -204,16 +208,25 @@ const navLinks = [
       }, 300);
     }
 
-    btn.onclick = () => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
       if (isOpen) closeMenu();
       else openMenu();
     };
 
-    backdrop.onclick = closeMenu;
+    backdrop.onclick = (e) => {
+      e.stopPropagation();
+      closeMenu();
+    };
 
-    // Close when clicking any link inside panel
+    // Close when clicking any navigation link inside panel
     panel.querySelectorAll('a').forEach((link) => {
-      link.onclick = closeMenu;
+      link.onclick = () => closeMenu();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) closeMenu();
     });
   }
 
