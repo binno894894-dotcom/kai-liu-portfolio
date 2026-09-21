@@ -29,6 +29,7 @@ export const apps: App[] = [
     icon: '/apps/device-box-icon.png',
     screenshots: [
       '/apps/device-box/preview-main.png',
+      '/apps/device-box/preview-stats.png',
       '/apps/device-box/preview-floating.png',
       '/apps/device-box/preview-capsule.png'
     ],

@@ -109,85 +109,125 @@ const featureCards = [
       </div>
     </header>
 
-    <!-- Core Visual: Real Device Screenshots & Mockups -->
-    <section class="space-y-4">
-      <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
-        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-          Interface Preview
-        </span>
-        <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-          Android 16 &bull; Jetpack Compose
-        </span>
-      </div>
+    <!-- Core Visual: Real Device Screenshots Showcase -->
+    <div class="space-y-10">
+      <!-- 1. Two Phone Mockups Side-by-Side (Main Screen + Stats Screen) -->
+      <section class="space-y-4">
+        <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            Interface Preview
+          </span>
+          <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+            Android 16 &bull; Jetpack Compose
+          </span>
+        </div>
 
-      <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 sm:p-12">
-        <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-          
-          <!-- 1. Real Phone Frame (Image 2 - Main Screen, First) -->
-          <div class="flex flex-col items-center space-y-3 shrink-0">
-            <div class="relative w-full max-w-[270px] sm:max-w-[290px] rounded-[44px] p-2.5 sm:p-3 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform hover:-translate-y-1 duration-200">
-              <!-- Punch Hole Camera -->
-              <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
-              <!-- Screen Container with Image 2 -->
-              <div class="relative rounded-[34px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
-                <img
-                  src={app.screenshots[0]}
-                  alt="Device Box 主介面 (圖2)"
-                  class="w-full h-full object-cover"
-                  loading="eager"
-                />
+        <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 p-6 sm:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center justify-center max-w-3xl mx-auto">
+            
+            <!-- Phone 1: Main Screen (First) -->
+            <div class="flex flex-col items-center space-y-3">
+              <div class="relative w-full max-w-[270px] sm:max-w-[290px] rounded-[44px] p-2.5 sm:p-3 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform hover:-translate-y-1 duration-200">
+                <!-- Punch Hole Camera -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+                <!-- Screen Container -->
+                <div class="relative rounded-[34px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
+                  <img
+                    src={app.screenshots[0]}
+                    alt="Device Box 主畫面 (規格與模式切換)"
+                    class="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
               </div>
+              <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                01 / 系統規格與模式切換
+              </span>
             </div>
-            <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-              主介面 &bull; 規格與模式開關
+
+            <!-- Phone 2: Stats Screen (Second - User Specified) -->
+            {app.screenshots[1] && (
+              <div class="flex flex-col items-center space-y-3">
+                <div class="relative w-full max-w-[270px] sm:max-w-[290px] rounded-[44px] p-2.5 sm:p-3 bg-zinc-900 dark:bg-zinc-950 border-[3px] border-zinc-300 dark:border-zinc-700 shadow-2xl transition-transform hover:-translate-y-1 duration-200">
+                  <!-- Punch Hole Camera -->
+                  <div class="absolute top-4 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+                  <!-- Screen Container -->
+                  <div class="relative rounded-[34px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
+                    <img
+                      src={app.screenshots[1]}
+                      alt="Device Box 即時數據監控 (溫度/CPU/網速/電量)"
+                      class="w-full h-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+                <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                  02 / 處理器與即時數據監控
+                </span>
+              </div>
+            )}
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. System Widgets Bento Cards (Floating Window & Status Bar Capsule) -->
+      {(app.screenshots[2] || app.screenshots[3]) && (
+        <section class="space-y-4">
+          <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              System Widgets
             </span>
           </div>
 
-          <!-- 2. Widgets Column (Image 1 Floating Widget + Status Bar Capsule) -->
-          <div class="flex flex-col gap-5 w-full max-w-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             
-            <!-- Widget Card: Floating Monitor (Image 1) -->
-            {app.screenshots[1] && (
-              <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 p-5 space-y-3 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    桌面即時懸浮儀表
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-200/80 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                    Floating
-                  </span>
+            <!-- Widget 1: Floating Window Monitor -->
+            {app.screenshots[2] && (
+              <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 space-y-3.5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                <div class="space-y-1">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                      桌面即時懸浮儀表
+                    </h3>
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                      Floating
+                    </span>
+                  </div>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+                    自由拖曳懸浮窗，即時監控溫度、CPU、電量與下載網速
+                  </p>
                 </div>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-                  自由拖曳懸浮窗，即時監控溫度、CPU、電量與下載網速
-                </p>
-                <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2.5 flex items-center justify-center">
+                <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-2.5 shadow-xs flex items-center justify-center">
                   <img
-                    src={app.screenshots[1]}
-                    alt="桌面懸浮視窗儀表 (圖1)"
-                    class="w-full max-w-[280px] h-auto object-contain rounded-lg"
+                    src={app.screenshots[2]}
+                    alt="桌面懸浮視窗儀表"
+                    class="w-full max-w-[320px] h-auto object-contain rounded-lg"
                     loading="eager"
                   />
                 </div>
               </div>
             )}
 
-            <!-- Widget Card: Status Bar Capsule -->
-            {app.screenshots[2] && (
-              <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 p-5 space-y-3 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    狀態列即時膠囊
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-200/80 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                    Capsule
-                  </span>
+            <!-- Widget 2: Status Bar Capsule -->
+            {app.screenshots[3] && (
+              <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 space-y-3.5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                <div class="space-y-1">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                      狀態列即時膠囊
+                    </h3>
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                      Capsule
+                    </span>
+                  </div>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+                    常駐 Android 狀態列，無需進入 App 隨時掌握晶片資訊
+                  </p>
                 </div>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-                  常駐 Android 狀態列，無需切換 App 隨時掌握晶片資訊
-                </p>
-                <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950">
+                <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 shadow-xs">
                   <img
-                    src={app.screenshots[2]}
+                    src={app.screenshots[3]}
                     alt="狀態列即時膠囊"
                     class="w-full h-auto object-cover"
                     loading="eager"
@@ -197,10 +237,9 @@ const featureCards = [
             )}
 
           </div>
-
-        </div>
-      </div>
-    </section>
+        </section>
+      )}
+    </div>
 
     <!-- Feature Grid: 2x2 Bento Visual Cards -->
     <section class="space-y-4">
