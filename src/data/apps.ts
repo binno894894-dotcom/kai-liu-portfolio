@@ -200,7 +200,7 @@ export const apps: App[] = [
       { en: 'Ad-free and private: zero tracking, fully local', zh: '無廣告干擾，注重隱私' }
     ],
     technologies: ['Android', 'Kotlin', 'Jetpack Compose', 'Material 3'],
-    downloadUrl: 'https://downloads.kkleon.com/DeviceKit.apk',
+    downloadUrl: 'https://downloads.kkleon.com/DeviceBox.apk',
     githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-09'
