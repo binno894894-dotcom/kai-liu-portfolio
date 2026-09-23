@@ -134,12 +134,31 @@ const isFocusNow = app.slug === 'focus-now';
                 <div class="relative w-full max-w-[240px] sm:max-w-[260px] rounded-[38px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[2.5px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
                   <div class="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
                   <div class="relative rounded-[28px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
-                    <img
-                      src={item.image}
-                      alt={item.title.en}
-                      class="w-full h-full object-cover"
-                      loading="eager"
-                    />
+                    {typeof item.image === 'string' ? (
+                      <img
+                        src={item.image}
+                        alt={item.title.en}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                    ) : (
+                      <>
+                        <img
+                          src={item.image.en}
+                          alt={item.title.en}
+                          class="w-full h-full object-cover"
+                          data-lang="en"
+                          loading="eager"
+                        />
+                        <img
+                          src={item.image.zh}
+                          alt={item.title.zh}
+                          class="w-full h-full object-cover"
+                          data-lang="zh"
+                          loading="eager"
+                        />
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -188,12 +207,31 @@ const isFocusNow = app.slug === 'focus-now';
                 <div class="relative w-full max-w-[240px] sm:max-w-[260px] rounded-[38px] p-2.5 bg-zinc-900 dark:bg-zinc-950 border-[2.5px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
                   <div class="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
                   <div class="relative rounded-[28px] overflow-hidden bg-zinc-950 aspect-[472/1024]">
-                    <img
-                      src={item.image}
-                      alt={item.title.en}
-                      class="w-full h-full object-cover"
-                      loading="eager"
-                    />
+                    {typeof item.image === 'string' ? (
+                      <img
+                        src={item.image}
+                        alt={item.title.en}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                    ) : (
+                      <>
+                        <img
+                          src={item.image.en}
+                          alt={item.title.en}
+                          class="w-full h-full object-cover"
+                          data-lang="en"
+                          loading="eager"
+                        />
+                        <img
+                          src={item.image.zh}
+                          alt={item.title.zh}
+                          class="w-full h-full object-cover"
+                          data-lang="zh"
+                          loading="eager"
+                        />
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -350,6 +388,79 @@ const isFocusNow = app.slug === 'focus-now';
               </div>
             </div>
           ))}
+        </div>
+
+        <!-- FocusNow 4-Column Phone Mockup Showcase with Dynamic Bilingual Switching -->
+        <div class="space-y-6 pt-4">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                Interface Tour &bull; Deep Work Flow
+              </span>
+              <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mt-1">
+                <span data-lang="en">App Interface Tour</span>
+                <span data-lang="zh">應用介面導覽與特色</span>
+              </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-sm">
+              <span data-lang="en">Minimalist monochrome design crafted to eliminate distractions and cultivate digital discipline.</span>
+              <span data-lang="zh">純黑白極簡克制設計，從倒數計時到阻擋防護，全方位培養數位專注自律。</span>
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {app.focusScreenshots?.map((item) => (
+              <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 flex flex-col items-center text-center space-y-4 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+                <!-- Phone Frame Mockup -->
+                <div class="relative w-full max-w-[210px] sm:max-w-[230px] rounded-[36px] p-2 bg-zinc-900 dark:bg-zinc-950 border-[2.5px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
+                  <div class="absolute top-3 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
+                  <div class="relative rounded-[26px] overflow-hidden bg-zinc-950 aspect-[1440/3120]">
+                    {typeof item.image === 'string' ? (
+                      <img
+                        src={item.image}
+                        alt={item.title.en}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                    ) : (
+                      <>
+                        <img
+                          src={item.image.en}
+                          alt={item.title.en}
+                          class="w-full h-full object-cover"
+                          data-lang="en"
+                          loading="eager"
+                        />
+                        <img
+                          src={item.image.zh}
+                          alt={item.title.zh}
+                          class="w-full h-full object-cover"
+                          data-lang="zh"
+                          loading="eager"
+                        />
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <!-- Text Intro -->
+                <div class="space-y-1.5 pt-1 w-full text-left">
+                  <span class="inline-block text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
+                    <span data-lang="en">{item.subtitle.en}</span>
+                    <span data-lang="zh">{item.subtitle.zh}</span>
+                  </span>
+                  <h3 class="text-sm sm:text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                    <span data-lang="en">{item.title.en}</span>
+                    <span data-lang="zh">{item.title.zh}</span>
+                  </h3>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
+                    <span data-lang="en">{item.description.en}</span>
+                    <span data-lang="zh">{item.description.zh}</span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     )}

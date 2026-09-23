@@ -8,7 +8,7 @@ export interface AppScreenshotItem {
   title: LocalizedString;
   subtitle: LocalizedString;
   description: LocalizedString;
-  image: string;
+  image: string | LocalizedString;
 }
 
 export interface AppFeatureCard {
@@ -29,6 +29,7 @@ export interface App {
   screenshots: string[];
   monoScreenshots?: AppScreenshotItem[];
   techScreenshots?: AppScreenshotItem[];
+  focusScreenshots?: AppScreenshotItem[];
   capsuleScreenshot?: string;
   features: LocalizedString[];
   featureCards?: AppFeatureCard[];
@@ -224,7 +225,64 @@ export const apps: App[] = [
     platform: 'Android',
     icon: '/apps/focus-now-icon.png',
     screenshots: [
-      '/apps/focus-now-icon.png'
+      '/apps/focus-now/en/focus-timer.jpg',
+      '/apps/focus-now/en/blocklist.jpg',
+      '/apps/focus-now/en/app-blocked.jpg',
+      '/apps/focus-now/en/achievements.jpg'
+    ],
+    focusScreenshots: [
+      {
+        id: 'focus-1',
+        title: { en: 'Deep Focus Timer', zh: '極簡專注計時器' },
+        subtitle: { en: 'Screen 01 · Minimal Timer', zh: '介面 01 · 極簡倒數' },
+        description: {
+          en: 'Distraction-free countdown ring with quick presets (25m, 1h, 2h, 4h) or custom durations. Tap to enter deep flow.',
+          zh: '直覺無干擾的環狀倒數計時，提供 25 分鐘、1 小時等多組快速預設或自訂時長，一鍵進入深度心流。'
+        },
+        image: {
+          en: '/apps/focus-now/en/focus-timer.jpg',
+          zh: '/apps/focus-now/zh/focus-timer.jpg'
+        }
+      },
+      {
+        id: 'focus-2',
+        title: { en: 'App & Web Blocklist', zh: '自訂干擾應用黑名單' },
+        subtitle: { en: 'Screen 02 · Distraction Shield', zh: '介面 02 · 應用阻擋' },
+        description: {
+          en: 'Selectively toggle apps and websites to block during active focus sessions. Keep social media distractions out of reach.',
+          zh: '自由勾選在專注期間阻擋的社群與娛樂 App，支援 DNS 網站防護，徹底隔絕演算法誘惑。'
+        },
+        image: {
+          en: '/apps/focus-now/en/blocklist.jpg',
+          zh: '/apps/focus-now/zh/blocklist.jpg'
+        }
+      },
+      {
+        id: 'focus-3',
+        title: { en: 'Active App Shield', zh: '強效攔截遮罩面板' },
+        subtitle: { en: 'Screen 03 · Fullscreen Shield', zh: '介面 03 · 全螢幕防護' },
+        description: {
+          en: 'Instant fullscreen overlay triggers when restricted apps are launched, with emergency challenges to reinforce discipline.',
+          zh: '當使用者無意識點開干擾 App 時，立即彈出全黑防護遮罩，並提供解題挑戰機制，強化自我克制力。'
+        },
+        image: {
+          en: '/apps/focus-now/en/app-blocked.jpg',
+          zh: '/apps/focus-now/zh/app-blocked.jpg'
+        }
+      },
+      {
+        id: 'focus-4',
+        title: { en: 'Discipline & Milestones', zh: '專注成就與紀律徽章' },
+        subtitle: { en: 'Screen 04 · Milestones', zh: '介面 04 · 里程碑' },
+        description: {
+          en: 'Track your personal growth across 28 unlockable tiers from Focus Initiate to Zen Master. Gamify deep work habits.',
+          zh: '紀錄每日專注進度與持續天數，內建 28 款解鎖徽章（從專注初心到禪定大師），以輕量成就感養成深度工作習慣。'
+        },
+        image: {
+          en: '/apps/focus-now/en/achievements.jpg',
+          zh: '/apps/focus-now/zh/achievements.jpg'
+        }
+      }
     ],
     featureCards: [
       {
