@@ -186,7 +186,7 @@ export const apps: App[] = [
       },
       {
         title: { en: 'Privacy-First', zh: '隱私至上' },
-        subtitle: { en: 'Zero ads, fully local execution', zh: '無廣告無追蹤完全本機運行' },
+        subtitle: { en: 'Fully local execution & privacy', zh: '純本地離線運行，隱私至上' },
         icon: 'shield'
       }
     ],
@@ -197,7 +197,7 @@ export const apps: App[] = [
       { en: 'Samsung curve gauge & Widgy-style home widgets', zh: '豐富桌面小工具（三星環狀 / Widgy 風格）' },
       { en: 'Dynamic micro indicator in the Android status bar', zh: '狀態列即時微型指標膠囊' },
       { en: 'Native & fluid architecture with Jetpack Compose', zh: '原生流暢（Jetpack Compose）' },
-      { en: 'Ad-free and private: zero tracking, fully local', zh: '無廣告干擾，注重隱私' }
+      { en: 'Privacy-focused: zero tracking, fully local', zh: '注重個人隱私，純本地運作' }
     ],
     technologies: ['Android', 'Kotlin', 'Jetpack Compose', 'Material 3'],
     downloadUrl: 'https://downloads.kkleon.com/DeviceBox.apk',
@@ -239,7 +239,7 @@ export const apps: App[] = [
       },
       {
         title: { en: 'Minimalist & Calming', zh: '極簡克制' },
-        subtitle: { en: 'Zero ads, clean Easlo-inspired aesthetic', zh: '零廣告、黑白 Easlo 沉浸美學' },
+        subtitle: { en: 'Clean and calming minimalist aesthetic', zh: '黑白極簡、沉浸專注美學' },
         icon: 'sparkles'
       },
       {
@@ -258,8 +258,8 @@ export const apps: App[] = [
         zh: '翻轉專注：手機朝下蓋住自動感應進入專注模式'
       },
       {
-        en: 'Minimalist & Calming: Zero ads, clean Easlo-inspired aesthetic',
-        zh: '極簡克制：零廣告、黑白 Easlo 沉浸美學'
+        en: 'Minimalist & Calming: Clean and focused monochrome aesthetic',
+        zh: '極簡克制：黑白極簡、沉浸專注美學'
       },
       {
         en: 'Insightful Stats: Lightweight focus duration tracking',
