@@ -1,5 +1,5 @@
 ---
-// apps/index.astro - Easlo Visual Overhaul
+// apps/index.astro - Easlo Visual Overhaul with Bilingual Support
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { apps } from '../../data/apps';
 ---
@@ -12,13 +12,16 @@ import { apps } from '../../data/apps';
     <!-- Header -->
     <header class="space-y-2">
       <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-        Portfolio
+        <span data-lang="en">Portfolio</span>
+        <span data-lang="zh">作品列表</span>
       </span>
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-        Apps
+        <span data-lang="en">Apps</span>
+        <span data-lang="zh">應用程式</span>
       </h1>
       <p class="text-sm font-mono text-zinc-500 dark:text-zinc-400">
-        Minimalist Android apps &bull; Jetpack Compose
+        <span data-lang="en">Minimalist Android apps &bull; Jetpack Compose</span>
+        <span data-lang="zh">極簡 Android 應用程式 &bull; Jetpack Compose</span>
       </p>
     </header>
 
@@ -54,7 +57,8 @@ import { apps } from '../../data/apps';
                   </div>
 
                   <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md">
-                    {app.tagline}
+                    <span data-lang="en">{app.tagline.en}</span>
+                    <span data-lang="zh">{app.tagline.zh}</span>
                   </p>
 
                   <!-- Tech chips -->
@@ -74,7 +78,8 @@ import { apps } from '../../data/apps';
                   href={`/apps/${app.slug}`}
                   class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800/60 active:scale-[0.97] transition-all"
                 >
-                  <span>Preview</span>
+                  <span data-lang="en">Preview</span>
+                  <span data-lang="zh">查看詳情</span>
                   <span class="text-zinc-400">&rarr;</span>
                 </a>
 
@@ -88,7 +93,8 @@ import { apps } from '../../data/apps';
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  <span>APK</span>
+                  <span data-lang="en">Download APK</span>
+                  <span data-lang="zh">下載 APK</span>
                 </a>
               </div>
 
@@ -99,4 +105,3 @@ import { apps } from '../../data/apps';
     </div>
   </div>
 </BaseLayout>
-

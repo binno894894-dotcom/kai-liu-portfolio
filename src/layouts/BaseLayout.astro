@@ -1,5 +1,5 @@
 ---
-// BaseLayout.astro - ViewTransitions and Smooth Transitions
+// BaseLayout.astro - ViewTransitions and Smooth Transitions with i18n
 import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -23,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
 ---
 
 <!doctype html>
-<html lang="zh-Hant" class="scroll-smooth">
+<html lang="en" data-lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,7 +51,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
     <!-- Astro View Transitions for Seamless Cross-Fade -->
     <ClientRouter />
 
-    <!-- Prevent Flash of Unstyled Content (FOUC) & Maintain Theme Across Page Swaps -->
+    <!-- Prevent FOUC: Maintain Theme & Language Across Swaps (Default: English) -->
     <script is:inline>
       function applyTheme() {
         const storedTheme = localStorage.getItem('theme');
@@ -64,8 +64,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kailiu.d
           document.documentElement.style.colorScheme = 'light';
         }
       }
+
+      function applyLang() {
+        const storedLang = localStorage.getItem('preferred-lang');
+        const lang = storedLang === 'zh' ? 'zh' : 'en'; // default to English
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
+      }
+
       applyTheme();
-      document.addEventListener('astro:after-swap', applyTheme);
+      applyLang();
+
+      document.addEventListener('astro:after-swap', () => {
+        applyTheme();
+        applyLang();
+      });
     </script>
   </head>
   <body class="min-h-screen flex flex-col text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-800 transition-colors duration-200">

@@ -1,15 +1,16 @@
 ---
-// Header.astro - Easlo-style Header with Avatar & Liquid Glass Mobile Menu
+// Header.astro - Easlo-style Header with Avatar, Language Toggle & Liquid Glass Mobile Menu
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageToggle from './LanguageToggle.astro';
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname.replace(/\/$/, '');
 
 const navLinks = [
-  { href: '/apps', label: 'Apps', isExternal: false },
-  { href: '/about', label: 'About', isExternal: false },
-  { href: 'https://github.com/binno894894-dotcom', label: 'GitHub', isExternal: true },
-  { href: 'https://www.threads.com/@stu6yen9ineer', label: 'Threads', isExternal: true },
+  { href: '/apps', label: { en: 'Apps', zh: '應用' }, isExternal: false },
+  { href: '/about', label: { en: 'About', zh: '關於' }, isExternal: false },
+  { href: 'https://github.com/binno894894-dotcom', label: { en: 'GitHub', zh: 'GitHub' }, isExternal: true },
+  { href: 'https://www.threads.com/@stu6yen9ineer', label: { en: 'Threads', zh: 'Threads' }, isExternal: true },
 ];
 ---
 
@@ -49,7 +50,8 @@ const navLinks = [
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/40'
                 ]}
               >
-                <span>{link.label}</span>
+                <span data-lang="en">{link.label.en}</span>
+                <span data-lang="zh">{link.label.zh}</span>
                 {link.isExternal && (
                   <svg
                     class="w-3 h-3 opacity-60 stroke-current"
@@ -69,13 +71,15 @@ const navLinks = [
         }
       </div>
 
-      <div class="ml-2 pl-2 border-l border-zinc-200 dark:border-zinc-800">
+      <div class="ml-2 pl-2 border-l border-zinc-200 dark:border-zinc-800 flex items-center gap-1.5">
+        <LanguageToggle />
         <ThemeToggle />
       </div>
     </nav>
 
     <!-- Mobile Navigation Controls (md:hidden) -->
-    <div class="flex md:hidden items-center gap-2">
+    <div class="flex md:hidden items-center gap-1.5">
+      <LanguageToggle />
       <ThemeToggle />
       <button
         id="mobile-menu-button"
@@ -129,7 +133,8 @@ const navLinks = [
                   : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-white/40 dark:hover:bg-white/10'
               ]}
             >
-              <span>{link.label}</span>
+              <span data-lang="en">{link.label.en}</span>
+              <span data-lang="zh">{link.label.zh}</span>
               {link.isExternal && (
                 <svg
                   class="w-3.5 h-3.5 opacity-60 stroke-current"
@@ -148,8 +153,16 @@ const navLinks = [
         })
       }
 
+      <!-- Mobile Controls Row: Language & Theme -->
       <div class="w-full pt-3 mt-1 border-t border-zinc-200/50 dark:border-white/10 flex items-center justify-between px-2">
-        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Theme</span>
+        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400" data-lang="en">Language</span>
+        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400" data-lang="zh">語言切換</span>
+        <LanguageToggle />
+      </div>
+
+      <div class="w-full pt-1.5 flex items-center justify-between px-2">
+        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400" data-lang="en">Appearance</span>
+        <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400" data-lang="zh">外觀模式</span>
         <ThemeToggle />
       </div>
     </div>

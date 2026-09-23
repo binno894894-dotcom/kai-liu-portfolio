@@ -1,5 +1,5 @@
 ---
-// index.astro - Easlo Minimalist Overhaul with "Apps by Kai" & Dual-Style Showcase
+// index.astro - Easlo Minimalist Overhaul with Bilingual i18n & Multi-App Grid
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { apps } from '../data/apps';
 
@@ -18,10 +18,12 @@ const featuredApp = apps[0];
           Kai Liu
         </h1>
         <p class="text-base sm:text-lg font-medium text-zinc-600 dark:text-zinc-400">
-          Android Developer &amp; Indie Maker
+          <span data-lang="en">Android Developer &amp; Indie Maker</span>
+          <span data-lang="zh">Android 開發者 &amp; 獨立創作者</span>
         </p>
         <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-500 pt-0.5">
-          Building minimal Android apps.
+          <span data-lang="en">A student building Android apps that make everyday life a little better.</span>
+          <span data-lang="zh">一個想改變生活的學生，打造讓日常更美好的 Android 工具。</span>
         </p>
       </div>
 
@@ -57,7 +59,8 @@ const featuredApp = apps[0];
           href="/apps"
           class="inline-flex items-center gap-1.5 px-3 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs font-mono font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-all duration-200 active:scale-95"
         >
-          <span>All Apps</span>
+          <span data-lang="en">All Apps</span>
+          <span data-lang="zh">全部應用</span>
           <span>&rarr;</span>
         </a>
       </div>
@@ -68,23 +71,26 @@ const featuredApp = apps[0];
       <!-- Centered Header & Subtitle & View All Button -->
       <div class="space-y-3 flex flex-col items-center">
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
-          Apps by Kai
+          <span data-lang="en">Apps by Kai</span>
+          <span data-lang="zh">Kai 的應用程式</span>
         </h2>
         <p class="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-          Get things done with apps designed with simplicity in mind.
+          <span data-lang="en">Get things done with apps designed with simplicity in mind.</span>
+          <span data-lang="zh">以簡約為本打造，專注提升日常體驗的 Android 應用。</span>
         </p>
         <div class="pt-1">
           <a
             href="/apps"
             class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-all duration-200 active:scale-95 shadow-xs"
           >
-            View All
+            <span data-lang="en">View All</span>
+            <span data-lang="zh">查看全部</span>
           </a>
         </div>
       </div>
 
-      <!-- App Icon Grid / List (Centered) -->
-      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-10 pt-4">
+      <!-- App Icon Grid / List (Centered, 2 Apps side-by-side) -->
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 pt-4">
         {
           apps.map((app) => (
             <a
@@ -106,8 +112,9 @@ const featuredApp = apps[0];
                 <div class="text-sm font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">
                   {app.name}
                 </div>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 max-w-[150px] leading-relaxed mx-auto">
-                  {app.shortTagline || app.tagline}
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 max-w-[160px] leading-relaxed mx-auto">
+                  <span data-lang="en">{app.shortTagline.en}</span>
+                  <span data-lang="zh">{app.shortTagline.zh}</span>
                 </p>
               </div>
             </a>
@@ -120,7 +127,8 @@ const featuredApp = apps[0];
     <section class="space-y-4">
       <div class="flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
         <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-          Preview &bull; {featuredApp.name} (雙風格切換)
+          <span data-lang="en">Featured &bull; {featuredApp.name} (Dual Styles)</span>
+          <span data-lang="zh">精選作品 &bull; {featuredApp.name}（雙風格切換）</span>
         </span>
         <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
           v{featuredApp.version}
@@ -146,7 +154,8 @@ const featuredApp = apps[0];
                 </div>
               </div>
               <span class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
-                極簡黑白風格
+                <span data-lang="en">Minimal Mono</span>
+                <span data-lang="zh">極簡黑白風格</span>
               </span>
             </div>
 
@@ -164,7 +173,8 @@ const featuredApp = apps[0];
                 </div>
               </div>
               <span class="text-[11px] font-mono text-cyan-600 dark:text-cyan-400">
-                未來科技風格
+                <span data-lang="en">Cyber Tech</span>
+                <span data-lang="zh">未來科技風格</span>
               </span>
             </div>
 
@@ -174,7 +184,8 @@ const featuredApp = apps[0];
               <div class="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-3.5 shadow-lg space-y-2 transition-transform duration-200 hover:-translate-y-0.5">
                 <div class="flex items-center justify-between">
                   <span class="text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-                    Status Bar &bull; 狀態列膠囊
+                    <span data-lang="en">Status Bar Capsule</span>
+                    <span data-lang="zh">狀態列即時膠囊</span>
                   </span>
                   <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 </div>
@@ -187,7 +198,8 @@ const featuredApp = apps[0];
                   />
                 </div>
                 <p class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
-                  常駐狀態列時鐘旁微型指標
+                  <span data-lang="en">Dynamic indicator in status bar</span>
+                  <span data-lang="zh">常駐狀態列時鐘旁微型指標</span>
                 </p>
               </div>
 
@@ -195,9 +207,13 @@ const featuredApp = apps[0];
               <div class="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80 p-3.5 shadow-lg space-y-2 transition-transform duration-200 hover:-translate-y-0.5">
                 <div class="flex items-center justify-between">
                   <span class="text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-                    Widgets &bull; 桌面小工具
+                    <span data-lang="en">Widgets &bull; Home</span>
+                    <span data-lang="zh">桌面小工具</span>
                   </span>
-                  <span class="text-[10px] font-mono text-zinc-400">多規格</span>
+                  <span class="text-[10px] font-mono text-zinc-400">
+                    <span data-lang="en">Multi-size</span>
+                    <span data-lang="zh">多規格</span>
+                  </span>
                 </div>
                 <div class="rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950 p-1.5 shadow-xs">
                   <img
@@ -208,7 +224,8 @@ const featuredApp = apps[0];
                   />
                 </div>
                 <p class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono leading-tight">
-                  三星環狀儀表與 Widgy 風格
+                  <span data-lang="en">Samsung arc & Widgy styles</span>
+                  <span data-lang="zh">三星環狀儀表與 Widgy 風格</span>
                 </p>
               </div>
             </div>
@@ -229,7 +246,8 @@ const featuredApp = apps[0];
               v{featuredApp.version}
             </span>
             <span class="px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              雙風格切換
+              <span data-lang="en">Dual Themes</span>
+              <span data-lang="zh">雙風格切換</span>
             </span>
           </div>
 
@@ -245,7 +263,8 @@ const featuredApp = apps[0];
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              <span>Download APK</span>
+              <span data-lang="en">Download APK</span>
+              <span data-lang="zh">下載 APK</span>
             </a>
 
             <a
@@ -269,7 +288,8 @@ const featuredApp = apps[0];
     <section class="space-y-4">
       <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
         <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-          Highlights
+          <span data-lang="en">Highlights</span>
+          <span data-lang="zh">核心亮點</span>
         </span>
       </div>
 
@@ -286,7 +306,8 @@ const featuredApp = apps[0];
             </svg>
           </div>
           <span class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            雙風格自由切換
+            <span data-lang="en">Dual Themes</span>
+            <span data-lang="zh">雙風格自由切換</span>
           </span>
         </div>
 
@@ -300,7 +321,8 @@ const featuredApp = apps[0];
             </svg>
           </div>
           <span class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            核心硬體規格監控
+            <span data-lang="en">Device Specs</span>
+            <span data-lang="zh">核心硬體規格監控</span>
           </span>
         </div>
 
@@ -312,7 +334,8 @@ const featuredApp = apps[0];
             </svg>
           </div>
           <span class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            記憶體加速與測速
+            <span data-lang="en">Fast &amp; Private</span>
+            <span data-lang="zh">記憶體加速與測速</span>
           </span>
         </div>
       </div>

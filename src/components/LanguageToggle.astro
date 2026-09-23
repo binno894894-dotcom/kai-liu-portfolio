@@ -1,0 +1,44 @@
+---
+// LanguageToggle.astro - Minimalist Bilingual Switcher (EN / 中)
+---
+
+<button
+  type="button"
+  data-lang-toggle-btn
+  aria-label="Toggle language (English / 繁體中文)"
+  title="Toggle language"
+  class="relative inline-flex items-center gap-1 h-9 px-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-700/60 bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white/90 dark:hover:bg-zinc-700/70 transition-all duration-150 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 shadow-2xs cursor-pointer select-none"
+>
+  <span class="lang-label-en transition-colors">EN</span>
+  <span class="text-zinc-300 dark:text-zinc-600 text-[10px]">/</span>
+  <span class="lang-label-zh transition-colors">中</span>
+</button>
+
+<script is:inline>
+  (function () {
+    if (window.__langToggleInitialized) return;
+    window.__langToggleInitialized = true;
+
+    function handleToggle(e) {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const btn = target.closest('[data-lang-toggle-btn]');
+      if (!btn) return;
+
+      e.preventDefault();
+      const html = document.documentElement;
+      const current = html.getAttribute('data-lang') || 'en';
+      const next = current === 'en' ? 'zh' : 'en';
+
+      html.setAttribute('data-lang', next);
+      html.setAttribute('lang', next === 'zh' ? 'zh-Hant' : 'en');
+      try {
+        localStorage.setItem('preferred-lang', next);
+      } catch (_) {}
+
+      window.dispatchEvent(new CustomEvent('lang-change', { detail: next }));
+    }
+
+    document.addEventListener('click', handleToggle);
+  })();
+</script>

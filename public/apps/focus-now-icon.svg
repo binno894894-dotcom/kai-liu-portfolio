@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Rounded Black Background -->
+  <rect width="512" height="512" rx="112" fill="#09090B"/>
+  
+  <!-- Outer Focus Ring -->
+  <circle cx="256" cy="256" r="194" stroke="#FAFAFA" stroke-width="24"/>
+  
+  <!-- Lock Shackle -->
+  <path d="M198 238V196C198 163.967 223.967 138 256 138C288.033 138 314 163.967 314 196V238" stroke="#FAFAFA" stroke-width="24" stroke-linecap="round"/>
+  
+  <!-- Lock Body -->
+  <rect x="176" y="238" width="160" height="126" stroke="#FAFAFA" stroke-width="24" rx="10"/>
+  
+  <!-- Lock Center Keyhole / Core dot -->
+  <circle cx="256" cy="301" r="14" fill="#FAFAFA"/>
+</svg>

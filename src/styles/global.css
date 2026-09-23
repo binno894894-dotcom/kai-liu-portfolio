@@ -44,6 +44,29 @@
   }
 }
 
+/* Bilingual i18n Rules (Zero-flicker CSS switching) */
+html[data-lang="en"] [data-lang="zh"] {
+  display: none !important;
+}
+html[data-lang="zh"] [data-lang="en"] {
+  display: none !important;
+}
+
+html[data-lang="en"] .lang-label-en {
+  font-weight: 700;
+  color: #18181b;
+}
+html.dark[data-lang="en"] .lang-label-en {
+  color: #ffffff;
+}
+html[data-lang="zh"] .lang-label-zh {
+  font-weight: 700;
+  color: #18181b;
+}
+html.dark[data-lang="zh"] .lang-label-zh {
+  color: #ffffff;
+}
+
 /* Glass Liquid Aesthetics */
 .glass-liquid-panel {
   background: rgba(255, 255, 255, 0.65);

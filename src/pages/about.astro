@@ -1,13 +1,13 @@
 ---
-// about.astro - Easlo Bento Desktop Optimized
+// about.astro - Easlo Bento Desktop Optimized with Bilingual i18n
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { apps } from '../data/apps';
 
 const techStack = [
-  { name: 'Android', category: 'Platform' },
-  { name: 'Kotlin', category: 'Language' },
-  { name: 'Compose', category: 'UI Toolkit' },
-  { name: 'Git', category: 'Version Control' },
+  { name: 'Android', category: { en: 'Platform', zh: '開發平台' } },
+  { name: 'Kotlin', category: { en: 'Language', zh: '核心語言' } },
+  { name: 'Compose', category: { en: 'UI Toolkit', zh: 'UI 框架' } },
+  { name: 'Git', category: { en: 'Version Control', zh: '版本控制' } },
 ];
 ---
 
@@ -24,7 +24,8 @@ const techStack = [
         <div class="p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 space-y-4">
           <div class="space-y-1">
             <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-              About
+              <span data-lang="en">About</span>
+              <span data-lang="zh">關於我</span>
             </span>
             <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
               Kai Liu
@@ -34,16 +35,19 @@ const techStack = [
           <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800/80 space-y-3">
             <div class="space-y-1">
               <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                身份
+                <span data-lang="en">Identity</span>
+                <span data-lang="zh">身份</span>
               </span>
               <div class="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
-                Student &amp; Android Indie Maker
+                <span data-lang="en">Student &amp; Android Indie Maker</span>
+                <span data-lang="zh">學生 &amp; Android 獨立創作者</span>
               </div>
             </div>
 
             <div class="space-y-1 pt-1">
               <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                專注
+                <span data-lang="en">Focus</span>
+                <span data-lang="zh">核心專注</span>
               </span>
               <div class="text-base sm:text-lg font-semibold text-zinc-800 dark:text-zinc-200 font-mono">
                 Android &bull; Kotlin &bull; Jetpack Compose
@@ -55,10 +59,12 @@ const techStack = [
         <!-- Philosophy Card -->
         <div class="p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 flex-1 flex flex-col justify-center space-y-2">
           <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-            理念
+            <span data-lang="en">Philosophy</span>
+            <span data-lang="zh">創作理念</span>
           </span>
           <blockquote class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans leading-tight">
-            &ldquo;Less text, better software.&rdquo;
+            <span data-lang="en">&ldquo;Less text, better software.&rdquo;</span>
+            <span data-lang="zh">&ldquo;極簡克制，精工打造更好用的軟體。&rdquo;</span>
           </blockquote>
         </div>
       </div>
@@ -68,7 +74,8 @@ const techStack = [
         <!-- Tech Stack Visual Card -->
         <div class="p-6 sm:p-7 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 space-y-4">
           <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-            Tech Stack
+            <span data-lang="en">Tech Stack</span>
+            <span data-lang="zh">技術架構</span>
           </span>
 
           <div class="grid grid-cols-2 gap-2.5">
@@ -76,7 +83,8 @@ const techStack = [
               techStack.map((tech) => (
                 <div class="p-3 rounded-2xl border border-zinc-100 dark:border-zinc-800/90 bg-zinc-50/70 dark:bg-zinc-900/80 space-y-0.5">
                   <div class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-                    {tech.category}
+                    <span data-lang="en">{tech.category.en}</span>
+                    <span data-lang="zh">{tech.category.zh}</span>
                   </div>
                   <div class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     {tech.name}
@@ -90,7 +98,8 @@ const techStack = [
         <!-- Connect Cards -->
         <div class="p-6 sm:p-7 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 space-y-4 flex-1 flex flex-col justify-between">
           <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-            Connect
+            <span data-lang="en">Connect</span>
+            <span data-lang="zh">社群連結</span>
           </span>
 
           <div class="space-y-2.5">
@@ -136,26 +145,28 @@ const techStack = [
 
     <!-- Apps by Kai Showcase Section (Bottom of About Page) -->
     <section class="space-y-6 text-center pt-8 border-t border-zinc-200/70 dark:border-zinc-800/80">
-      <!-- Centered Header & Subtitle & View All Button -->
       <div class="space-y-3 flex flex-col items-center">
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
-          Apps by Kai
+          <span data-lang="en">Apps by Kai</span>
+          <span data-lang="zh">Kai 的應用程式</span>
         </h2>
         <p class="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-          Apps designed with simplicity in mind.
+          <span data-lang="en">Apps designed with simplicity in mind.</span>
+          <span data-lang="zh">以極簡為核心打造的實用 Android 工具。</span>
         </p>
         <div class="pt-1">
           <a
             href="/apps"
             class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-opacity shadow-xs"
           >
-            View All
+            <span data-lang="en">View All</span>
+            <span data-lang="zh">查看全部</span>
           </a>
         </div>
       </div>
 
       <!-- App Icon Grid / List (Centered) -->
-      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-10 pt-4">
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 pt-4">
         {
           apps.map((app) => (
             <a
@@ -178,7 +189,8 @@ const techStack = [
                   {app.name}
                 </div>
                 <p class="text-xs text-zinc-500 dark:text-zinc-400 max-w-[150px] leading-relaxed mx-auto">
-                  Android 裝置數據觀察工具
+                  <span data-lang="en">{app.shortTagline.en}</span>
+                  <span data-lang="zh">{app.shortTagline.zh}</span>
                 </p>
               </div>
             </a>
@@ -188,4 +200,3 @@ const techStack = [
     </section>
   </div>
 </BaseLayout>
-
