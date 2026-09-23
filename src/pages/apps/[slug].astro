@@ -408,11 +408,11 @@ const isFocusNow = app.slug === 'focus-now';
             </p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
             {app.focusScreenshots?.map((item) => (
-              <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-5 flex flex-col items-center text-center space-y-4 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-4 sm:p-5 flex flex-col items-center text-center space-y-4 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
                 <!-- Phone Frame Mockup -->
-                <div class="relative w-full max-w-[210px] sm:max-w-[230px] rounded-[36px] p-2 bg-zinc-900 dark:bg-zinc-950 border-[2.5px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
+                <div class="relative w-full max-w-[190px] sm:max-w-[210px] rounded-[34px] p-2 bg-zinc-900 dark:bg-zinc-950 border-[2.5px] border-zinc-300 dark:border-zinc-700 shadow-xl transition-transform hover:-translate-y-1 duration-200">
                   <div class="absolute top-3 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-700/60 z-20"></div>
                   <div class="relative rounded-[26px] overflow-hidden bg-zinc-950 aspect-[1440/3120]">
                     {typeof item.image === 'string' ? (

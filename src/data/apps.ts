@@ -226,6 +226,7 @@ export const apps: App[] = [
     icon: '/apps/focus-now-icon.png',
     screenshots: [
       '/apps/focus-now/en/focus-timer.jpg',
+      '/apps/focus-now/en/flip-to-focus.jpg',
       '/apps/focus-now/en/blocklist.jpg',
       '/apps/focus-now/en/app-blocked.jpg',
       '/apps/focus-now/en/achievements.jpg'
@@ -246,8 +247,21 @@ export const apps: App[] = [
       },
       {
         id: 'focus-2',
+        title: { en: 'Flip Face-Down Sensor', zh: '翻轉專注感測機制' },
+        subtitle: { en: 'Screen 02 · Gravity Gesture', zh: '介面 02 · 重力翻轉' },
+        description: {
+          en: 'Instant gravity detection automatically prompts deep focus when phone is placed face-down on your desk.',
+          zh: '利用重力感應精準辨識手機姿態，螢幕朝下扣在桌面即刻觸發深度專注，抬起手機則發出溫和提醒。'
+        },
+        image: {
+          en: '/apps/focus-now/en/flip-to-focus.jpg',
+          zh: '/apps/focus-now/zh/flip-to-focus.jpg'
+        }
+      },
+      {
+        id: 'focus-3',
         title: { en: 'App & Web Blocklist', zh: '自訂干擾應用黑名單' },
-        subtitle: { en: 'Screen 02 · Distraction Shield', zh: '介面 02 · 應用阻擋' },
+        subtitle: { en: 'Screen 03 · Distraction Shield', zh: '介面 03 · 應用阻擋' },
         description: {
           en: 'Selectively toggle apps and websites to block during active focus sessions. Keep social media distractions out of reach.',
           zh: '自由勾選在專注期間阻擋的社群與娛樂 App，支援 DNS 網站防護，徹底隔絕演算法誘惑。'
@@ -258,9 +272,9 @@ export const apps: App[] = [
         }
       },
       {
-        id: 'focus-3',
+        id: 'focus-4',
         title: { en: 'Active App Shield', zh: '強效攔截遮罩面板' },
-        subtitle: { en: 'Screen 03 · Fullscreen Shield', zh: '介面 03 · 全螢幕防護' },
+        subtitle: { en: 'Screen 04 · Fullscreen Shield', zh: '介面 04 · 全螢幕防護' },
         description: {
           en: 'Instant fullscreen overlay triggers when restricted apps are launched, with emergency challenges to reinforce discipline.',
           zh: '當使用者無意識點開干擾 App 時，立即彈出全黑防護遮罩，並提供解題挑戰機制，強化自我克制力。'
@@ -271,12 +285,12 @@ export const apps: App[] = [
         }
       },
       {
-        id: 'focus-4',
-        title: { en: 'Discipline & Milestones', zh: '專注成就與紀律徽章' },
-        subtitle: { en: 'Screen 04 · Milestones', zh: '介面 04 · 里程碑' },
+        id: 'focus-5',
+        title: { en: 'Discipline & Achievements', zh: '專注成就與紀律徽章' },
+        subtitle: { en: 'Screen 05 · Milestones', zh: '介面 05 · 成就系統' },
         description: {
           en: 'Track your personal growth across 28 unlockable tiers from Focus Initiate to Zen Master. Gamify deep work habits.',
-          zh: '紀錄每日專注進度與持續天數，內建 28 款解鎖徽章（從專注初心到禪定大師），以輕量成就感養成深度工作習慣。'
+          zh: '紀錄每日專注進度與持續天數，內建 28 款解鎖徽章（從專注學徒到心智長城），以輕量成就感養成深度工作習慣。'
         },
         image: {
           en: '/apps/focus-now/en/achievements.jpg',
