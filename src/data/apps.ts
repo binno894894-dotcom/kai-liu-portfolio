@@ -343,6 +343,71 @@ export const apps: App[] = [
     githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-09'
+  },
+  {
+    slug: 'ghostgram',
+    name: 'GhostGram',
+    tagline: {
+      en: 'Browse Instagram in stealth mode. View stories and read DMs without leaving a trace.',
+      zh: '隱形無痕瀏覽。悄悄看限時動態、閱讀私訊不留已讀標記。'
+    },
+    shortTagline: {
+      en: 'Stealth Instagram client',
+      zh: '極致隱私無痕社群工具'
+    },
+    description: {
+      en: 'A privacy-focused Android client for Instagram. Watch stories completely anonymously without appearing on viewer lists, and read incoming messages without triggering the \'seen\' indicator.',
+      zh: '專為極致隱私打造的 Android 社群工具。無痕觀看限時動態絕不留下瀏覽名單紀錄，自由閱讀私訊不再有「已讀」社交壓力，給予你最自在的瀏覽空間。'
+    },
+    version: '1.0.0',
+    platform: 'Android',
+    icon: '/apps/ghostgram-icon.png',
+    screenshots: [],
+    featureCards: [
+      {
+        title: { en: 'Anonymous Stories', zh: '無痕看限動' },
+        subtitle: { en: 'View stories without appearing on viewer list', zh: '觀看限動絕不顯示在對方的看過名單中' },
+        icon: 'eye-off'
+      },
+      {
+        title: { en: 'Ghost DMs', zh: '幽靈私訊閱讀' },
+        subtitle: { en: 'Read messages with zero "seen" receipt', zh: '查看私訊不標記已讀，消除社交焦慮' },
+        icon: 'message-square'
+      },
+      {
+        title: { en: 'Privacy First', zh: '極致隱私' },
+        subtitle: { en: 'No personal data tracking or telemetry', zh: '不追蹤個人行為與帳號資料' },
+        icon: 'shield'
+      },
+      {
+        title: { en: 'Zero Ads', zh: '純淨無廣告' },
+        subtitle: { en: 'Distraction-free clean social experience', zh: '捨棄雜亂廣告干擾，回歸最純粹的瀏覽' },
+        icon: 'sparkles'
+      }
+    ],
+    features: [
+      {
+        en: 'Anonymous Story Viewer: View stories without appearing on the viewer list',
+        zh: '無痕看限動：觀看限時動態絕不顯示在對方的看過名單中'
+      },
+      {
+        en: 'Ghost Direct Messages: Read messages with zero "seen" receipt',
+        zh: '幽靈私訊閱讀：查看私訊不標記已讀，消除社交焦慮'
+      },
+      {
+        en: 'Privacy First: No personal data tracking or telemetry',
+        zh: '極致隱私：不追蹤個人行為與帳號資料'
+      },
+      {
+        en: 'Zero Ads: Distraction-free clean social experience',
+        zh: '純淨無廣告：捨棄雜亂廣告干擾，回歸最純粹的瀏覽'
+      }
+    ],
+    technologies: ['Android', 'Kotlin', 'Reverse Engineering', 'Jetpack Compose'],
+    downloadUrl: 'https://downloads.kkleon.com/GhostGram.apk',
+    githubUrl: 'https://github.com/binno894894-dotcom',
+    playStoreUrl: '',
+    releaseDate: '2026-09'
   }
 ];
 
