@@ -1,0 +1,253 @@
+---
+// src/pages/child-safety.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'September 30, 2026';
+const lastUpdatedZh = '2026 年 9 月 30 日';
+---
+
+<BaseLayout
+  title="Child Safety Standards (CSAE / CSAM Policy) — Kai Liu"
+  description="Child Safety Standards and prevention policy for Child Sexual Abuse Material (CSAM) and Child Sexual Exploitation and Abuse (CSAE) for applications developed by Kai Liu."
+>
+  <div class="max-w-3xl mx-auto space-y-12 sm:space-y-16 py-4">
+    <!-- Header -->
+    <header class="space-y-4 border-b border-zinc-100 dark:border-zinc-800/80 pb-8">
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          <span data-lang="en">Safety &amp; Compliance</span>
+          <span data-lang="zh">安全標準與政策規範</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
+          <span data-lang="en">Child Safety Standards</span>
+          <span data-lang="zh">兒童安全防範標準</span>
+        </h1>
+        <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400">
+          <span data-lang="en">CSAE &amp; CSAM Prevention Policy (Google Play Compliant)</span>
+          <span data-lang="zh">兒少性虐待與剝削（CSAE / CSAM）防範政策聲明</span>
+        </p>
+      </div>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 font-mono">
+        <span data-lang="en">Last updated: {lastUpdated}</span>
+        <span data-lang="zh">最後更新日期：{lastUpdatedZh}</span>
+      </p>
+      <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Kai Liu ("Developer", "we") is unequivocally committed to the safety and protection of children. We maintain an absolute <strong>zero-tolerance policy</strong> regarding Child Sexual Abuse Material (CSAM) and Child Sexual Exploitation and Abuse (CSAE) across all software applications and utilities published under our developer account (including GhostGram).
+        </span>
+        <span data-lang="zh">
+          獨立開發者 Kai Liu（以下簡稱「我們」或「開發者」）全力維護兒童與青少年的數位安全與福祉。在我們發布的各款應用程式（包括 GhostGram）中，我們堅決奉行針對「兒少性虐待內容（CSAM）」與「兒少性剝削及性虐待（CSAE）」的<strong>零容忍政策（Zero Tolerance）</strong>。
+        </span>
+      </p>
+    </header>
+
+    <!-- Core Safety Pillars (3 Cards) -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-red-100 dark:bg-red-950/40 flex items-center justify-center text-red-600 dark:text-red-400">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Zero Tolerance</span>
+          <span data-lang="zh">絕對零容忍</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">Strict ban on any creation, transmission, or facilitation of CSAM/CSAE material.</span>
+          <span data-lang="zh">嚴格禁止任何涉及兒少性虐待、性剝削或不當內容之產製、傳播與協助行為。</span>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Proactive Reporting</span>
+          <span data-lang="zh">主動通報機制</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">Instant reporting of CSAM incidents to NCMEC and legal authorities.</span>
+          <span data-lang="zh">一經發現涉嫌違法之兒少安全事項，立即通報 NCMEC 及各國司法主管機關。</span>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Designated Contact</span>
+          <span data-lang="zh">專任聯絡窗口</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">Responsive, dedicated safety inquiries at xiongba82@gmail.com.</span>
+          <span data-lang="zh">設有專用兒童安全申訴信箱，專人即時受理並妥善處理通報。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: Scope & Nature of Applications -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">1. Scope and Application Architecture</span>
+          <span data-lang="zh">1. 適用範圍與應用架構</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          GhostGram is designed as a client-side, privacy-focused utility tool. The application does not operate any cloud servers, does not host user-generated content (UGC), and does not provide public message forums or content storage databases. 
+        </span>
+        <span data-lang="zh">
+          GhostGram 是一款純本機端執行的隱私輔助工具。本應用程式不營運任何自建雲端伺服器、不託管使用者自製內容（UGC）、亦不提供公開留言板或社群內容資料庫。
+        </span>
+      </p>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Any web browsing performed through GhostGram accesses third-party social media platforms (specifically Instagram / Meta Platforms, Inc.) within a local, sandboxed WebView. Content displayed originates entirely from the respective service provider, which operates under its own strict terms of service and content moderation systems.
+        </span>
+        <span data-lang="zh">
+          使用者透過 GhostGram 瀏覽之所有社群內容，均是在本機沙盒 WebView 中直接存取第三方服務商（即 Instagram / Meta Platforms, Inc.）。所有呈現之內容皆源自該原廠平台，並受其嚴格之社群守則及審查機制管轄。
+        </span>
+      </p>
+    </section>
+
+    <!-- Section 2: Prohibited Conduct -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">2. Prohibited Content and Conduct</span>
+          <span data-lang="zh">2. 嚴格禁止之內容與行為</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          We strictly prohibit the use of our applications for any of the following activities:
+        </span>
+        <span data-lang="zh">
+          我們明令禁止使用者利用本應用程式從事以下任何行為：
+        </span>
+      </p>
+      <ul class="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5 pl-2">
+        <li>
+          <span data-lang="en">Uploading, transmitting, viewing, or distributing any Child Sexual Abuse Material (CSAM).</span>
+          <span data-lang="zh">上傳、傳輸、瀏覽或散布任何形式之兒少性虐待與性剝削影音或圖像資料（CSAM）。</span>
+        </li>
+        <li>
+          <span data-lang="en">Engaging in child sexual grooming, exploitation, solicitation, or extortion.</span>
+          <span data-lang="zh">對未成年人進行誘拐（Grooming）、性剝削、索取私密影像或勒索等不法行徑。</span>
+        </li>
+        <li>
+          <span data-lang="en">Facilitating or encouraging any harm or violation of children's safety and well-being.</span>
+          <span data-lang="zh">任何助長、唆使或危害兒童及青少年人身安全與身心健全之非法行徑。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 3: User Reporting Mechanisms -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">3. Reporting and Enforcement Mechanism</span>
+          <span data-lang="zh">3. 違規檢舉與防範處置機制</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Users who encounter any suspected child safety violations or abusive content have two immediate reporting channels:
+        </span>
+        <span data-lang="zh">
+          使用者若在應用程式中發現任何疑似涉及兒少安全之違規內容或可疑行徑，可透過以下兩種即時管道進行檢舉：
+        </span>
+      </p>
+      <div class="space-y-3 pl-2 text-sm text-zinc-600 dark:text-zinc-400">
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/20">
+          <strong class="text-zinc-900 dark:text-zinc-100 font-semibold block mb-1">
+            <span data-lang="en">Channel A: Direct In-App Content Reporting</span>
+            <span data-lang="zh">管道一：應用內直接檢舉</span>
+          </strong>
+          <span data-lang="en">
+            Users can utilize the native "Report" option available on any post, profile, or direct message within the Instagram interface to alert the platform's 24/7 global safety moderation team immediately.
+          </span>
+          <span data-lang="zh">
+            使用者可直接點擊 Instagram 介面中每則貼文、限時動態、個人檔案或私訊旁的「檢舉（Report）」按鈕，直接由原廠全球 24 小時安全防護團隊進行即時審查與封鎖下架。
+          </span>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/20">
+          <strong class="text-zinc-900 dark:text-zinc-100 font-semibold block mb-1">
+            <span data-lang="en">Channel B: Developer Safety Contact</span>
+            <span data-lang="zh">管道二：直接向開發者通報</span>
+          </strong>
+          <span data-lang="en">
+            Reports may be submitted directly to our designated safety email: <a href="mailto:xiongba82@gmail.com" class="text-blue-600 dark:text-blue-400 underline font-mono">xiongba82@gmail.com</a>. We will review all safety reports promptly and take decisive action.
+          </span>
+          <span data-lang="zh">
+            您亦可直接將案件詳細資訊發送至我們的專任兒童安全信箱：<a href="mailto:xiongba82@gmail.com" class="text-blue-600 dark:text-blue-400 underline font-mono">xiongba82@gmail.com</a>，我們將以最高優先級進行評估與處置。
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Cooperation with Law Enforcement & NCMEC -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">4. Cooperation with Law Enforcement &amp; NCMEC</span>
+          <span data-lang="zh">4. 配合主管機關與 NCMEC 通報義務</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          In full compliance with applicable child protection laws and Google Play Child Safety Standards, if we become aware of any actual or suspected CSAM or child exploitation on or involving our application:
+        </span>
+        <span data-lang="zh">
+          為落實相關兒童保護法律及 Google Play 兒童安全政策之規定，若我們獲悉或發現任何確切或疑似之兒少性虐待或剝削違法情事：
+        </span>
+      </p>
+      <ul class="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5 pl-2">
+        <li>
+          <span data-lang="en">We will immediately file a CyberTipline report with the <strong>National Center for Missing &amp; Exploited Children (NCMEC)</strong>.</span>
+          <span data-lang="zh">我們將立即向<strong>美國國家失蹤及被剝削兒童中心（NCMEC CyberTipline）</strong>提出通報。</span>
+        </li>
+        <li>
+          <span data-lang="en">We will actively cooperate with local and international law enforcement agencies to assist in relevant investigations.</span>
+          <span data-lang="zh">我們將全力配合各國地方及國家司法警政主管機關，依法提供必要之協助以打擊違法犯罪。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Designated Safety Contact Box -->
+    <section class="p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 space-y-4">
+      <div class="space-y-1">
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          <span data-lang="en">Official Contact</span>
+          <span data-lang="zh">指定聯絡窗口</span>
+        </span>
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Child Safety Contact Information</span>
+          <span data-lang="zh">兒少安全申訴與聯絡方式</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          The designated contact representative responsible for ensuring compliance with Child Safety Standards (CSAM / CSAE policies) is:
+        </span>
+        <span data-lang="zh">
+          負責監管並落實兒少性虐待內容（CSAM）及兒少性剝削防範標準（CSAE）之專責聯絡資訊如下：
+        </span>
+      </p>
+      <div class="space-y-1 pt-1 font-mono text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+        <div><strong>Designated Representative:</strong> Kai Liu</div>
+        <div><strong>Safety Contact Email:</strong> <a href="mailto:xiongba82@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">xiongba82@gmail.com</a></div>
+        <div><strong>Official Website:</strong> <a href="https://kkleon.com" class="text-blue-600 dark:text-blue-400 hover:underline">https://kkleon.com</a></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
