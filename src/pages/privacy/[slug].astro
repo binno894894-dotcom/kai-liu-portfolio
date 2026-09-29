@@ -1,0 +1,160 @@
+---
+// src/pages/privacy/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { apps, type App } from '../../data/apps';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app }
+  }));
+}
+
+interface Props {
+  app: App;
+}
+
+const { app } = Astro.props;
+const lastUpdated = 'September 28, 2026';
+const lastUpdatedZh = '2026 年 9 月 28 日';
+---
+
+<BaseLayout
+  title={`${app.name} — Privacy Policy | Kai Liu`}
+  description={`Official Privacy Policy and data safety disclosures for ${app.name} on Android.`}
+  image={app.icon}
+>
+  <div class="max-w-3xl mx-auto space-y-12 sm:space-y-16 py-4">
+    <!-- Back to general privacy -->
+    <div>
+      <a
+        href="/privacy"
+        class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors group"
+      >
+        <span class="transition-transform group-hover:-translate-x-1">&larr;</span>
+        <span data-lang="en">All Apps Privacy Policy</span>
+        <span data-lang="zh">返回所有應用隱私政策</span>
+      </a>
+    </div>
+
+    <!-- App Header -->
+    <header class="space-y-6 border-b border-zinc-100 dark:border-zinc-800/80 pb-8">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm">
+          <img
+            src={app.icon}
+            alt={`${app.name} Icon`}
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="space-y-1">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            <span data-lang="en">App Privacy Policy</span>
+            <span data-lang="zh">應用程式隱私條款</span>
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
+            {app.name}
+          </h1>
+          <p class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+            <span data-lang="en">Developer: Kai Liu &bull; Last updated: {lastUpdated}</span>
+            <span data-lang="zh">開發者：Kai Liu &bull; 最後更新日期：{lastUpdatedZh}</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          This Privacy Policy specifically applies to the Android application <strong>{app.name}</strong>, developed by Kai Liu. <strong>{app.name}</strong> does not collect, transmit, store, or sell any personal data or sensitive information.
+        </span>
+        <span data-lang="zh">
+          本隱私權政策專門適用於由獨立開發者 Kai Liu 所開發之 Android 應用程式 <strong>{app.name}</strong>。<strong>{app.name}</strong> 完全不蒐集、不上傳、不儲存亦不販售使用者的任何個人隱私或機敏數據。
+        </span>
+      </p>
+    </header>
+
+    <!-- App Specific Summary -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <span data-lang="en">Data Collection &amp; Use</span>
+        <span data-lang="zh">資料蒐集與使用規範</span>
+      </h2>
+      <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 text-sm text-zinc-600 dark:text-zinc-400 space-y-3 leading-relaxed">
+        <p>
+          <span data-lang="en">
+            <strong>Personal Data:</strong> None. {app.name} does not require registration, login, account creation, or any identity verification.
+          </span>
+          <span data-lang="zh">
+            <strong>個人敏感資料：</strong>完全無蒐集。{app.name} 不要求註冊、不需登入，亦不建立任何帳號或身分識別檔案。
+          </span>
+        </p>
+        <p>
+          <span data-lang="en">
+            <strong>Device Data:</strong> Any device metrics (such as CPU, memory, or timer counts) accessed by {app.name} are processed strictly in-memory on your physical device for real-time display.
+          </span>
+          <span data-lang="zh">
+            <strong>裝置資訊處理：</strong>{app.name} 所存取之任何本機數據（如效能指標、計時紀錄等）皆於您實體手機內部即時運算呈現，絕不寫入遠端資料庫。
+          </span>
+        </p>
+        <p>
+          <span data-lang="en">
+            <strong>Advertising &amp; Analytics:</strong> {app.name} contains zero third-party advertising SDKs and zero analytics or user tracking libraries.
+          </span>
+          <span data-lang="zh">
+            <strong>廣告與追蹤：</strong>{app.name} 未嵌入任何第三方商業廣告套件，亦無任何追蹤用戶行為之分析工具。
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Children's Privacy -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <span data-lang="en">Children's Privacy (COPPA)</span>
+        <span data-lang="zh">兒童隱私權保護</span>
+      </h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          {app.name} does not knowingly collect personally identifiable information from children under the age of 13.
+        </span>
+        <span data-lang="zh">
+          {app.name} 絕不蒐集任何使用者的個人資訊，因此亦不會在知情的情況下蒐集 13 歲以下兒童之任何資訊。
+        </span>
+      </p>
+    </section>
+
+    <!-- Data Retention & Deletion -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <span data-lang="en">Data Deletion &amp; Retention</span>
+        <span data-lang="zh">資料保存與刪除方式</span>
+      </h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Because no data is stored on remote servers, users can completely erase all local app preferences at any time by going to Android Settings &rarr; Apps &rarr; {app.name} &rarr; Storage &rarr; "Clear Data", or by uninstalling the application.
+        </span>
+        <span data-lang="zh">
+          由於無任何資料傳輸至遠端伺服器，使用者可隨時至 Android「設定」&rarr;「應用程式」&rarr;「{app.name}」&rarr;「儲存空間」&rarr; 點選「清除資料」，或直接將應用程式解除安裝，即可完全銷毀所有本地儲存之偏好設定。
+        </span>
+      </p>
+    </section>
+
+    <!-- Contact Developer Box -->
+    <section class="p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 space-y-4">
+      <div class="space-y-1">
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          <span data-lang="en">Developer Contact</span>
+          <span data-lang="zh">開發者聯繫資訊</span>
+        </span>
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Questions or Concerns?</span>
+          <span data-lang="zh">有任何疑問或建議？</span>
+        </h2>
+      </div>
+      <div class="space-y-1 pt-1 font-mono text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+        <div><strong>Developer:</strong> Kai Liu</div>
+        <div><strong>Email:</strong> <a href="mailto:binno894894@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">binno894894@gmail.com</a></div>
+        <div><strong>Website:</strong> <a href="https://kkleon.com" class="text-blue-600 dark:text-blue-400 hover:underline">https://kkleon.com</a></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

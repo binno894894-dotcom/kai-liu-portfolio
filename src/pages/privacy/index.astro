@@ -1,0 +1,369 @@
+---
+// src/pages/privacy/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { apps } from '../../data/apps';
+
+const lastUpdated = 'September 28, 2026';
+const lastUpdatedZh = '2026 年 9 月 28 日';
+---
+
+<BaseLayout
+  title="Privacy Policy — Kai Liu"
+  description="Privacy policy and data transparency statement for Android apps developed by Kai Liu."
+>
+  <div class="max-w-3xl mx-auto space-y-12 sm:space-y-16 py-4">
+    <!-- Header -->
+    <header class="space-y-4 border-b border-zinc-100 dark:border-zinc-800/80 pb-8">
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          <span data-lang="en">Legal &amp; Transparency</span>
+          <span data-lang="zh">隱私規範與條款</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
+          <span data-lang="en">Privacy Policy</span>
+          <span data-lang="zh">隱私權政策</span>
+        </h1>
+      </div>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 font-mono">
+        <span data-lang="en">Last updated: {lastUpdated}</span>
+        <span data-lang="zh">最後更新日期：{lastUpdatedZh}</span>
+      </p>
+      <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          This Privacy Policy explains how Kai Liu ("we", "developer") handles your data across all of our Android applications (including Device Box, FocusNow, GhostGram, and future releases). We believe privacy is a fundamental human right. Our core philosophy is simple: <strong>your data belongs to you, and we do not want it.</strong>
+        </span>
+        <span data-lang="zh">
+          本隱私權政策旨在說明獨立開發者 Kai Liu（以下簡稱「我們」或「開發者」）在您使用旗下各款 Android 應用程式（包含 Device Box、FocusNow、GhostGram 等）時處理資訊的方式。我們深信隱私是不可退讓的基本權利，我們的核心設計原則非常純粹：<strong>您的個人數據永遠屬於您，我們絕不蒐集、不上傳，更不向任何第三方揭露。</strong>
+        </span>
+      </p>
+    </header>
+
+    <!-- Key Principles (4 Grid Cards) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Zero Personal Data Collection</span>
+          <span data-lang="zh">零個人資料蒐集</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">We do not collect names, phone numbers, emails, passwords, location data, or device identifiers.</span>
+          <span data-lang="zh">我們絕不蒐集姓名、電話號碼、電子郵件、密碼、精確定位或裝置唯一識別碼（IMEI/MAC）。</span>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">100% On-Device Processing</span>
+          <span data-lang="zh">100% 本機即時運算</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">All hardware metrics, timers, and application preferences are processed locally in real-time.</span>
+          <span data-lang="zh">所有裝置硬體數據、專注計時與個人偏好設定皆於您的手機內部運算，無任何雲端備份。</span>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">No Ads &amp; No Trackers</span>
+          <span data-lang="zh">無廣告、零追蹤器</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">No advertising SDKs (AdMob, Meta Ads) or third-party behavioral trackers (Firebase Analytics, Mixpanel).</span>
+          <span data-lang="zh">不植入任何廣告商業套件或第三方用戶行為分析工具，保證操作介面純粹乾淨。</span>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+            <polyline points="17 21 17 13 7 13 7 21" />
+            <polyline points="7 3 7 8 15 8" />
+          </svg>
+        </div>
+        <h2 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Full User Control</span>
+          <span data-lang="zh">完整掌控權</span>
+        </h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="en">You can clear application data or uninstall at any time to permanently remove all stored preferences.</span>
+          <span data-lang="zh">您可以隨時在 Android 系統設定中清除資料或解除安裝，即可永久徹底清除所有本機數據。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- App-Specific Disclosures -->
+    <section class="space-y-6 pt-4">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Application-Specific Disclosures</span>
+          <span data-lang="zh">個別應用程式隱私說明</span>
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Device Box -->
+        <article class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100">Device Box</h3>
+          </div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2 leading-relaxed">
+            <p>
+              <span data-lang="en">
+                <strong>What data is accessed:</strong> Device Box accesses real-time hardware status including CPU core frequency, RAM usage, internal storage capacity, battery temperature/health, and instantaneous network transfer speeds via official Android system APIs.
+              </span>
+              <span data-lang="zh">
+                <strong>讀取之資訊：</strong>Device Box 透過 Android 系統標準 API 即時讀取處理器頻率、記憶體負載、儲存容量、電池溫度/健康度以及即時網路傳輸流量。
+              </span>
+            </p>
+            <p>
+              <span data-lang="en">
+                <strong>Purpose of access:</strong> This information is strictly utilized for immediate rendering in the app UI, home screen widgets, and the dynamic status bar capsule. It is never logged to disk or sent across the network.
+              </span>
+              <span data-lang="zh">
+                <strong>存取目的：</strong>上述數據僅供應用介面、桌面小工具與狀態列微型膠囊進行即時圖形渲染呈現，絕不寫入持久日誌，更不會透過網路向外傳輸。
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <!-- FocusNow -->
+        <article class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100">FocusNow</h3>
+          </div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2 leading-relaxed">
+            <p>
+              <span data-lang="en">
+                <strong>What data is accessed:</strong> User-customized focus timers, blacklist of blocked applications, and personal streak statistics.
+              </span>
+              <span data-lang="zh">
+                <strong>讀取之資訊：</strong>使用者自訂之專注時長、黑名單封鎖應用列表以及累計專注成就紀錄。
+              </span>
+            </p>
+            <p>
+              <span data-lang="en">
+                <strong>Usage Access / Overlay Permissions:</strong> When the app blocking feature is enabled, FocusNow utilizes Android Usage Stats or Accessibility APIs exclusively to identify whether a blacklisted application has come into the foreground during an active focus session. The package name check is performed locally within milliseconds and immediately discarded; no browsing history or usage timelines are collected or sent anywhere.
+              </span>
+              <span data-lang="zh">
+                <strong>使用情況存取權限：</strong>當您啟用強效防分心封鎖時，FocusNow 僅於專注計時進行期間，在手機本機即時比對當前前景應用程式之套件名稱。比對運算於數毫秒內在本地記憶體完成即釋放，絕不蒐集或上傳任何應用程式使用歷程、瀏覽記錄或隱私活動。
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <!-- GhostGram -->
+        <article class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100">GhostGram</h3>
+          </div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2 leading-relaxed">
+            <p>
+              <span data-lang="en">
+                <strong>Local Sandboxed Client:</strong> GhostGram runs a local WebView sandbox. All web requests are communicated directly between your device and official Instagram servers via encrypted HTTPS.
+              </span>
+              <span data-lang="zh">
+                <strong>本機沙盒瀏覽：</strong>GhostGram 採用本機 WebView 沙盒架構，所有網路請求皆由您的裝置透過加密 HTTPS 直接與 Instagram 官方伺服器傳輸。
+              </span>
+            </p>
+            <p>
+              <span data-lang="en">
+                <strong>Zero Intermediary Servers:</strong> We do not operate any middle-tier servers, proxy gateways, or remote storage. Your login session, credentials, cookies, and chat contents remain strictly within your device's private app sandbox.
+              </span>
+              <span data-lang="zh">
+                <strong>零中繼伺服器：</strong>開發者不建置、不維運任何轉發代理伺服器。您的登入憑據、Cookie、瀏覽歷程與聊天內容完整封裝在 Android 本機私有沙盒中，外部完全無法窺視。
+              </span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Permissions Detailed Table -->
+    <section class="space-y-4 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Android System Permissions Explained</span>
+          <span data-lang="zh">Android 系統權限使用說明</span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-zinc-50 dark:bg-zinc-900/80 border-b border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 font-mono">
+            <tr>
+              <th class="p-3.5 sm:p-4">
+                <span data-lang="en">Permission</span>
+                <span data-lang="zh">權限名稱</span>
+              </th>
+              <th class="p-3.5 sm:p-4">
+                <span data-lang="en">Purpose</span>
+                <span data-lang="zh">使用目的與範圍</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800/60 text-zinc-700 dark:text-zinc-300">
+            <tr>
+              <td class="p-3.5 sm:p-4 font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100">POST_NOTIFICATIONS</td>
+              <td class="p-3.5 sm:p-4 leading-relaxed">
+                <span data-lang="en">Required on Android 13+ to notify you when a focus session completes or to display real-time status notifications.</span>
+                <span data-lang="zh">Android 13+ 必備權限，用於於專注計時完成時發送提醒通知，或呈現狀態列監控膠囊。</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100">FOREGROUND_SERVICE</td>
+              <td class="p-3.5 sm:p-4 leading-relaxed">
+                <span data-lang="en">Used to keep active focus timers running smoothly and accurately when your screen is locked or in background.</span>
+                <span data-lang="zh">維持背景前台服務運作，確保在螢幕鎖定或切換畫面時，專注計時器精準運算不被系統中斷。</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100">PACKAGE_USAGE_STATS</td>
+              <td class="p-3.5 sm:p-4 leading-relaxed">
+                <span data-lang="en">Optional permission requested by FocusNow only if you choose to enable the app blocking feature. Verified solely on-device.</span>
+                <span data-lang="zh">FocusNow 專注封鎖選用權限，僅在您主動開啟防分心封鎖時請求，全部於手機端即時校驗。</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100">INTERNET</td>
+              <td class="p-3.5 sm:p-4 leading-relaxed">
+                <span data-lang="en">Required for online features (such as Instagram web interaction in GhostGram, or bandwidth speed test in Device Box).</span>
+                <span data-lang="zh">僅供連網功能正常運作（例如 GhostGram 瀏覽 Instagram，或 Device Box 進行即時網路頻寬測速）。</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Children's Privacy & COPPA Compliance -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Children's Privacy Protection (COPPA / GDPR-K)</span>
+          <span data-lang="zh">兒童與青少年隱私保護規範</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Our applications do not target children under the age of 13 (or under 16 in the European Union). Because our applications do not collect any personal information from any user, we do not knowingly collect, store, or solicit personally identifiable information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately, and we will take prompt action to resolve the issue.
+        </span>
+        <span data-lang="zh">
+          我們的應用程式並非針對 13 歲以下（或歐盟地區 16 歲以下）兒童所設計。由於我們的應用程式完全不蒐集任何用戶的個人識別資料，因此我們絕不會在知情的情況下蒐集、留存或索取兒童的任何個人數據。若家長或監護人對此有任何疑慮，歡迎隨時透過電子郵件與開發者聯繫。
+        </span>
+      </p>
+    </section>
+
+    <!-- Third-Party Services -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Third-Party Services &amp; Disclosures</span>
+          <span data-lang="zh">第三方服務與合作條款</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          We do not sell, trade, rent, or transfer any user data to outside parties. Our applications do not incorporate third-party advertising networks or tracking SDKs. Any network interactions that occur (e.g., loading web content within a sandboxed WebView) are subject directly to the privacy policy of that respective content provider (such as Meta / Instagram).
+        </span>
+        <span data-lang="zh">
+          我們絕不販售、交換、出租或向任何第三方機構分享任何使用者資訊。我們的各款應用皆未嵌入任何商業廣告網路或行為追蹤套件。任何應用內發生的連網互動（例如在 GhostGram 沙盒中瀏覽社群內容），均直接受該原廠內容提供商（如 Meta / Instagram）之隱私權政策規範。
+        </span>
+      </p>
+    </section>
+
+    <!-- Data Retention & Deletion Policy -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Data Retention and Deletion</span>
+          <span data-lang="zh">資料保存與完全刪除權利</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          Because all application preferences, logs, and timer data are stored solely on your local device, no user data resides on remote servers. You have complete autonomy over your data:
+        </span>
+        <span data-lang="zh">
+          由於所有應用偏好、統計日誌與計時數據皆僅儲存在您本機裝置之內部記憶體中，遠端伺服器毫無保留任何紀錄。您享有完全自主的數據控制權：
+        </span>
+      </p>
+      <ul class="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5 pl-2">
+        <li>
+          <span data-lang="en"><strong>Clear App Storage:</strong> Go to Android Settings &rarr; Apps &rarr; Select App &rarr; Storage &rarr; "Clear Data" to reset everything.</span>
+          <span data-lang="zh"><strong>清除應用資料：</strong>前往 Android「設定」&rarr;「應用程式」&rarr; 選擇該應用 &rarr;「儲存空間」&rarr; 點擊「清除資料」即可徹底重設。</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>Uninstall App:</strong> Uninstalling the application completely purges all sandbox databases and cached files from your device.</span>
+          <span data-lang="zh"><strong>解除安裝應用：</strong>直接解除安裝應用程式，系統將自動永久抹除該應用的所有私有資料庫與快取檔案。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Policy Updates -->
+    <section class="space-y-3 pt-2">
+      <div class="border-b border-zinc-200/70 dark:border-zinc-800/80 pb-2">
+        <h2 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Changes to This Policy</span>
+          <span data-lang="zh">條款變更通知</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          We may update our Privacy Policy periodically to reflect new features or evolving legal requirements. Any modifications will be posted directly on this webpage with a revised "Last updated" date. We encourage users to check this page periodically for any updates.
+        </span>
+        <span data-lang="zh">
+          我們可能會隨著功能推陳出新或法規要求，不定期修訂本隱私權政策。任何修改均會直接公布於此公開網頁，並更新最上方的「最後更新日期」。建議使用者隨時查閱以了解最新政策。
+        </span>
+      </p>
+    </section>
+
+    <!-- Contact Developer Box -->
+    <section class="p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 space-y-4">
+      <div class="space-y-1">
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          <span data-lang="en">Contact</span>
+          <span data-lang="zh">聯絡方式</span>
+        </span>
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <span data-lang="en">Questions &amp; Inquiries</span>
+          <span data-lang="zh">聯絡開發者</span>
+        </h2>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <span data-lang="en">
+          If you have any questions, concerns, or requests regarding this Privacy Policy or how your privacy is handled in our apps, please reach out directly:
+        </span>
+        <span data-lang="zh">
+          若您對本隱私權政策、應用程式權限或個人隱私保障有任何疑問、建議或反饋，歡迎直接與開發者聯繫：
+        </span>
+      </p>
+      <div class="space-y-1 pt-1 font-mono text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+        <div><strong>Developer:</strong> Kai Liu</div>
+        <div><strong>Email:</strong> <a href="mailto:binno894894@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">binno894894@gmail.com</a></div>
+        <div><strong>Website:</strong> <a href="https://kkleon.com" class="text-blue-600 dark:text-blue-400 hover:underline">https://kkleon.com</a></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
