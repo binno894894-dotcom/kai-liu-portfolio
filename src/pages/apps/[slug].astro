@@ -10,6 +10,9 @@ export function getStaticPaths() {
   }));
 }
 
+import fs from 'node:fs';
+import path from 'node:path';
+
 interface Props {
   app: App;
 }
@@ -18,6 +21,16 @@ const { app } = Astro.props;
 const isDeviceBox = app.slug === 'device-box';
 const isFocusNow = app.slug === 'focus-now';
 const isGhostGram = app.slug === 'ghostgram';
+
+let ghostgramBookmarklet = '';
+if (isGhostGram) {
+  try {
+    const minPath = path.resolve('public/ghostgram-bookmarklet-min.txt');
+    ghostgramBookmarklet = fs.readFileSync(minPath, 'utf-8').trim();
+  } catch (e) {
+    ghostgramBookmarklet = "javascript:alert('GhostGram');";
+  }
+}
 ---
 
 <BaseLayout
@@ -94,6 +107,17 @@ const isGhostGram = app.slug === 'ghostgram';
           <span data-lang="en">Download APK</span>
           <span data-lang="zh">下載 APK</span>
         </a>
+
+        {isGhostGram && (
+          <a
+            href="#web-bookmarklet"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-pink-500/30 bg-pink-500/10 text-pink-600 dark:text-pink-400 text-xs sm:text-sm font-semibold hover:bg-pink-500/20 active:scale-[0.97] transition-all shadow-xs"
+          >
+            <span class="text-base">👻</span>
+            <span data-lang="en">Web Edition (No Install)</span>
+            <span data-lang="zh">電腦免安裝網頁版</span>
+          </a>
+        )}
 
         <a
           href={app.githubUrl}
@@ -583,6 +607,139 @@ const isGhostGram = app.slug === 'ghostgram';
             ))}
           </div>
         </div>
+
+        <!-- ============================================================ -->
+        <!-- GHOSTGRAM WEB 專用免安裝書籤小工具專區 (Web Bookmarklet Edition) -->
+        <!-- ============================================================ -->
+        <div id="web-bookmarklet" class="scroll-mt-16 space-y-6 pt-6">
+          <div class="rounded-3xl border border-pink-500/20 dark:border-pink-500/30 bg-gradient-to-b from-pink-500/5 via-zinc-50/50 to-white dark:from-pink-950/20 dark:via-zinc-900/40 dark:to-zinc-950 p-6 sm:p-10 space-y-8 shadow-sm">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-200/70 dark:border-zinc-800/80 pb-6">
+              <div class="space-y-1.5">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
+                  <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                  <span data-lang="en">Desktop Web Edition (Zero Install)</span>
+                  <span data-lang="zh">電腦網頁版（免安裝任何軟體）</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
+                  <span data-lang="en">GhostGram Web Bookmarklet</span>
+                  <span data-lang="zh">GhostGram 瀏覽器書籤小工具</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                  <span data-lang="en">Simply drag to your bookmarks bar. Browse Instagram with stealth stories and ghost DMs in any desktop browser.</span>
+                  <span data-lang="zh">直接拖曳到書籤列。在電腦打開 Instagram 點擊即可啟動，悄悄看限動、讀私訊完全不留痕跡！</span>
+                </p>
+              </div>
+
+              <!-- Drag Action Button & Copy Code Button -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                <a
+                  href={ghostgramBookmarklet}
+                  class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF2D55] via-[#E1306C] to-[#F77737] text-white font-bold text-xs sm:text-sm shadow-md shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-grab active:cursor-grabbing select-none group"
+                  title="將此按鈕直接拖曳至瀏覽器上方書籤列"
+                >
+                  <span class="text-lg group-hover:rotate-12 transition-transform">👻</span>
+                  <span data-lang="en">Drag to Bookmarks Bar</span>
+                  <span data-lang="zh">拖曳我到書籤列</span>
+                </a>
+
+                <button
+                  type="button"
+                  id="copy-bookmarklet-btn"
+                  data-code={ghostgramBookmarklet}
+                  class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-mono text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-[0.98] transition-all cursor-pointer select-none"
+                >
+                  <svg class="w-4 h-4 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                  </svg>
+                  <span id="copy-btn-text">
+                    <span data-lang="en">Copy Script</span>
+                    <span data-lang="zh">複製書籤代碼</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3 Simple Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono font-bold text-sm flex items-center justify-center">01</div>
+                <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                  <span data-lang="en">Drag to Bookmarks</span>
+                  <span data-lang="zh">拖曳至書籤列</span>
+                </h4>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
+                  <span data-lang="en">Drag the pink button above directly into your browser's bookmark bar (Press Ctrl+Shift+B if bar is hidden).</span>
+                  <span data-lang="zh">將上方粉色按鈕直接拖曳到瀏覽器上方的書籤列（若未顯示書籤列請按 Ctrl+Shift+B）。</span>
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono font-bold text-sm flex items-center justify-center">02</div>
+                <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                  <span data-lang="en">Open Instagram</span>
+                  <span data-lang="zh">打開 Instagram 網頁</span>
+                </h4>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
+                  <span data-lang="en">In the same browser, visit instagram.com with your normal logged-in account.</span>
+                  <span data-lang="zh">在電腦瀏覽器前往平常登入的 instagram.com，使用自己的帳號正常瀏覽。</span>
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-sm flex items-center justify-center">03</div>
+                <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                  <span data-lang="en">Click Bookmark to Activate</span>
+                  <span data-lang="zh">點擊書籤立即隱身</span>
+                </h4>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
+                  <span data-lang="en">Click the bookmark. A pink floating ball will appear on the bottom-right, silently blocking all seen receipts!</span>
+                  <span data-lang="zh">點一下該書籤，右下角立刻浮現粉色懸浮控制球，已讀與限動回傳自動全面阻斷！</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Live Simulator & Playground Demo -->
+            <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 p-6 text-white space-y-4 relative overflow-hidden">
+              <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                  <span class="text-xs font-mono text-zinc-400 ml-2">instagram.com — GhostGram Active</span>
+                </div>
+                <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                  ● Stealth Protected
+                </span>
+              </div>
+
+              <div class="py-6 flex flex-col items-center justify-center text-center space-y-4">
+                <p class="text-xs sm:text-sm text-zinc-300 max-w-sm">
+                  <span data-lang="en">Try clicking the pink floating button on this page to test the in-page GhostGram control center!</span>
+                  <span data-lang="zh">點擊右下角粉色懸浮球，即可直接在此頁面體驗 GhostGram 隱身中控面板！</span>
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    id="simulate-seen-btn"
+                    class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-200 transition-all border border-zinc-700 active:scale-95 cursor-pointer"
+                  >
+                    模擬觀看限動 (測試攔截)
+                  </button>
+                  <button
+                    type="button"
+                    id="simulate-dm-btn"
+                    class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-200 transition-all border border-zinc-700 active:scale-95 cursor-pointer"
+                  >
+                    模擬閱讀私訊 (測試攔截)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </section>
     )}
 
@@ -661,4 +818,55 @@ const isGhostGram = app.slug === 'ghostgram';
       </div>
     </section>
   </div>
+
+  {isGhostGram && (
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Copy Bookmarklet Script Button
+        const copyBtn = document.getElementById('copy-bookmarklet-btn');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', async () => {
+            const code = copyBtn.getAttribute('data-code');
+            if (!code) return;
+            try {
+              await navigator.clipboard.writeText(code);
+              const label = document.getElementById('copy-btn-text');
+              if (label) {
+                const originalHtml = label.innerHTML;
+                label.innerHTML = '<span style="color:#10B981;font-weight:700;">✓ 已複製代碼！</span>';
+                setTimeout(() => {
+                  label.innerHTML = originalHtml;
+                }, 2000);
+              }
+            } catch (err) {
+              alert('複製失敗，請手動全選書籤代碼複製。');
+            }
+          });
+        }
+
+        // 2. Load the actual Bookmarklet logic on this page for live preview
+        const script = document.createElement('script');
+        script.src = '/ghostgram-bookmarklet.js';
+        script.onload = () => {
+          // Connect the Simulate buttons to trigger mock requests
+          const simSeenBtn = document.getElementById('simulate-seen-btn');
+          const simDmBtn = document.getElementById('simulate-dm-btn');
+          
+          if (simSeenBtn) {
+            simSeenBtn.addEventListener('click', () => {
+              // Trigger a mock story seen fetch that gets intercepted by GhostGram
+              fetch('/api/v1/stories/reel/seen', { method: 'POST' }).catch(() => {});
+            });
+          }
+          if (simDmBtn) {
+            simDmBtn.addEventListener('click', () => {
+              // Trigger a mock dm seen fetch that gets intercepted by GhostGram
+              fetch('/direct_v2/threads/123/seen', { method: 'POST' }).catch(() => {});
+            });
+          }
+        };
+        document.body.appendChild(script);
+      });
+    </script>
+  )}
 </BaseLayout>
