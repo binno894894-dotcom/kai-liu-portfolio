@@ -395,8 +395,8 @@ export const apps: App[] = [
         zh: '幽靈私訊閱讀：查看私訊不標記已讀，消除社交焦慮'
       },
       {
-        en: 'Story Viewer Footprint: Reveal exact viewing timestamps (e.g. 14:23:45, 5m ago) for your stories',
-        zh: '限動觀眾即時足跡：解鎖官方隱藏時間戳記，精準顯示觀眾查看的確切時間（如 14:23:45 / 5 分鐘前）'
+        en: 'Story HD Downloader: Save high-resolution story photos and videos with one click',
+        zh: '限動高清一鍵下載：觀看限時動態時一鍵保存最高畫質照片與原檔影片'
       },
       {
         en: 'Privacy First: No personal data tracking or telemetry',
