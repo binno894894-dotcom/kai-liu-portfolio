@@ -359,7 +359,7 @@ export const apps: App[] = [
       en: 'A privacy-first browsing enhancement suite for Instagram (Chrome Extension & Android). Watch stories anonymously without seen receipts, read incoming messages without triggering the \'seen\' indicator, and unlock Pro bulk media downloads.',
       zh: '專為極致隱私打造的 Instagram 電腦瀏覽器擴充功能與社群增強套件。在電腦打開 Instagram 自動無痕觀看限時動態、私訊防已讀、過濾動態贊助廣告、影音預設靜音，並支援 Pro 專屬多圖輪播一鍵批量打包與自訂黑名單關鍵字過濾。'
     },
-    version: '1.4.0',
+    version: '1.5.0',
     platform: 'Chrome Extension / Web',
     icon: '/apps/ghostgram-icon.png',
     screenshots: [
@@ -369,50 +369,58 @@ export const apps: App[] = [
     ],
     featureCards: [
       {
-        title: { en: 'Anonymous Stories', zh: '無痕看限動' },
-        subtitle: { en: 'View stories without appearing on viewer list', zh: '觀看限動絕不顯示在對方的看過名單中' },
+        title: { en: 'Anonymous Stories & DMs', zh: '限動隱身 & 私訊防已讀' },
+        subtitle: { en: 'Browse IG completely unseen with zero receipts', zh: '觀看限動不留痕跡，閱讀私訊保持未讀' },
         icon: 'eye-off'
       },
       {
-        title: { en: 'Ghost DMs', zh: '幽靈私訊閱讀' },
-        subtitle: { en: 'Read messages with zero "seen" receipt', zh: '查看私訊不標記已讀，消除社交焦慮' },
-        icon: 'message-square'
+        title: { en: 'Non-Followers Tracker', zh: '未回追帳號偵測 & CSV' },
+        subtitle: { en: 'Scan non-followers, export CSV & safe auto-unfollow', zh: '一鍵找出誰沒回追你、導出名單、安全防風控退追' },
+        icon: 'users'
       },
       {
-        title: { en: 'Pro Bulk Downloader', zh: 'Pro 輪播多圖批量下載' },
-        subtitle: { en: '1-Click download all media in carousel posts', zh: '貼文包含多張照片/影片時，一鍵批量全量儲存' },
+        title: { en: 'Bulk Profile Downloader', zh: '主頁貼文/影音批次打包' },
+        subtitle: { en: 'Batch download photos, videos, reels & highlights', zh: '一鍵掃描並全量打包儲存帳號主頁所有媒體' },
         icon: 'sparkles'
       },
       {
-        title: { en: 'AdBlock & Keyword Filter', zh: '廣告與關鍵字過濾' },
-        subtitle: { en: 'Filter sponsored posts & custom blacklist keywords', zh: '自動過濾贊助廣告，並支援自訂關鍵字黑名單' },
-        icon: 'shield'
+        title: { en: 'HD Zoom & AI Comments', zh: 'HD 原圖放大 & AI 留言' },
+        subtitle: { en: 'Full-res avatar zoom & one-click AI comment ideas', zh: '1080p 大頭貼原圖檢視，內建高情商 AI 靈感留言' },
+        icon: 'message-square'
       }
     ],
     features: [
       {
-        en: 'Anonymous Story Viewer: View stories without appearing on the viewer list',
-        zh: '無痕看限動：觀看限時動態絕不顯示在對方的看過名單中'
+        en: 'Anonymous Story & DM Viewer: View stories and messages with zero seen receipts (Free Core)',
+        zh: '無痕看限動與私訊防已讀：完全不留已讀紀錄，徹底解除社群焦慮（免費核心）'
       },
       {
-        en: 'Ghost Direct Messages: Read messages with zero "seen" receipt',
-        zh: '幽靈私訊閱讀：查看私訊不標記已讀，消除社交焦慮'
+        en: 'Pro Non-Followers Tracker: Scan accounts that don\'t follow back, with custom whitelist (Pro)',
+        zh: 'Pro 未回追帳號偵測器：自動掃描比對找出沒回關你的幽靈帳號，支援白名單保護（Pro 專屬）'
       },
       {
-        en: 'Pro Carousel Batch Downloader: Save all photos & videos in carousel posts (License Key required)',
-        zh: 'Pro 輪播多圖批量下載：貼文包含多圖時一鍵連續自動打包儲存（需 Pro 授權碼啟用）'
+        en: 'Pro Safe Auto-Unfollow: Unfollow non-followers with human-like delays to prevent IG bans (Pro)',
+        zh: 'Pro 安全批次退追：內建模擬真人隨機間隔與安全上限，防止觸發 IG 風控封鎖（Pro 專屬）'
       },
       {
-        en: 'Custom Keyword Filter: Block unwanted posts containing blacklist keywords (Pro feature)',
-        zh: '自訂關鍵字黑名單：隱藏含有指定黑名單詞彙的動態貼文（Pro 專屬特權）'
+        en: 'Pro Followers to CSV Exporter: One-click export your followers & following lists to CSV (Pro)',
+        zh: 'Pro 粉絲名單導出 CSV：一鍵導出粉絲與追蹤清單為完整 CSV 數據表格（Pro 專屬）'
       },
       {
-        en: 'AdBlock & Auto-Mute: Block sponsored posts and prevent sudden blasting audio',
-        zh: '廣告過濾與預設靜音：自動去除贊助動態，影音載入時自動靜音防止公共場合爆音'
+        en: 'Pro Bulk Profile Downloader: Batch download all posts, photos, videos, and carousels (Pro)',
+        zh: 'Pro 主頁全量批次下載：一鍵連續下載主頁貼文、多圖輪播、Reels 與限動精選（Pro 專屬）'
       },
       {
-        en: '100% Client-Side Privacy: Zero telemetry, zero tracking, run entirely local',
-        zh: '100% 本機端端對端隱私：不收集任何帳號密碼或瀏覽記錄，純本地運作'
+        en: 'Pro HD Avatar & Image Zoom: View full-resolution 1080p avatars and post images in 1 click (Pro)',
+        zh: 'Pro HD 大頭貼與原圖放大：懸停或點擊大頭貼立即彈出 1080p 高清無損原圖（Pro 專屬）'
+      },
+      {
+        en: 'Pro AI Smart Comment Generator: 1-Click insert engaging and thoughtful comments (Pro)',
+        zh: 'Pro AI 智慧靈感留言：貼文留言框內建讚美、共鳴、提問等多風格高情商評論（Pro 專屬）'
+      },
+      {
+        en: 'AdBlock & Audio Mute: Filter sponsored posts and prevent sudden blasting audio on feed (Free Core)',
+        zh: '廣告過濾與預設靜音：自動隱藏動態贊助貼文，載入影音時自動靜音防止爆音（免費核心）'
       }
     ],
     technologies: ['Chrome Extension (Manifest V3)', 'JavaScript', 'Web APIs', 'declarativeNetRequest'],
