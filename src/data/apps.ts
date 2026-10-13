@@ -349,20 +349,24 @@ export const apps: App[] = [
     name: 'GhostGram',
     tagline: {
       en: 'Browse Instagram in stealth mode. View stories and read DMs without leaving a trace.',
-      zh: '隱形無痕瀏覽。悄悄看限時動態、閱讀私訊不留已讀標記。'
+      zh: '電腦瀏覽器隱身與增強套件。悄悄無痕看限動、私訊防已讀、去廣告、高清多圖一鍵打包。'
     },
     shortTagline: {
-      en: 'Stealth Instagram client',
-      zh: '極致隱私無痕社群工具'
+      en: 'Chrome Extension & Stealth Instagram Tool',
+      zh: 'Chrome 擴充套件 & 隱私無痕社群工具'
     },
     description: {
-      en: 'A privacy-focused Android client for Instagram. Watch stories completely anonymously without appearing on viewer lists, and read incoming messages without triggering the \'seen\' indicator.',
-      zh: '專為極致隱私打造的 Android 社群工具。無痕觀看限時動態絕不留下瀏覽名單紀錄，自由閱讀私訊不再有「已讀」社交壓力，給予你最自在的瀏覽空間。'
+      en: 'A privacy-first browsing enhancement suite for Instagram (Chrome Extension & Android). Watch stories anonymously without seen receipts, read incoming messages without triggering the \'seen\' indicator, and unlock Pro bulk media downloads.',
+      zh: '專為極致隱私打造的 Instagram 電腦瀏覽器擴充功能與社群增強套件。在電腦打開 Instagram 自動無痕觀看限時動態、私訊防已讀、過濾動態贊助廣告、影音預設靜音，並支援 Pro 專屬多圖輪播一鍵批量打包與自訂黑名單關鍵字過濾。'
     },
-    version: '1.0.0',
-    platform: 'Android',
+    version: '1.4.0',
+    platform: 'Chrome Extension / Web',
     icon: '/apps/ghostgram-icon.png',
-    screenshots: [],
+    screenshots: [
+      '/apps/ghostgram/screenshot-1.png',
+      '/apps/ghostgram/screenshot-2.png',
+      '/apps/ghostgram/screenshot-3.png'
+    ],
     featureCards: [
       {
         title: { en: 'Anonymous Stories', zh: '無痕看限動' },
@@ -375,14 +379,14 @@ export const apps: App[] = [
         icon: 'message-square'
       },
       {
-        title: { en: 'Privacy First', zh: '極致隱私' },
-        subtitle: { en: 'No personal data tracking or telemetry', zh: '不追蹤個人行為與帳號資料' },
-        icon: 'shield'
+        title: { en: 'Pro Bulk Downloader', zh: 'Pro 輪播多圖批量下載' },
+        subtitle: { en: '1-Click download all media in carousel posts', zh: '貼文包含多張照片/影片時，一鍵批量全量儲存' },
+        icon: 'sparkles'
       },
       {
-        title: { en: 'Zero Ads', zh: '純淨無廣告' },
-        subtitle: { en: 'Distraction-free clean social experience', zh: '捨棄雜亂廣告干擾，回歸最純粹的瀏覽' },
-        icon: 'sparkles'
+        title: { en: 'AdBlock & Keyword Filter', zh: '廣告與關鍵字過濾' },
+        subtitle: { en: 'Filter sponsored posts & custom blacklist keywords', zh: '自動過濾贊助廣告，並支援自訂關鍵字黑名單' },
+        icon: 'shield'
       }
     ],
     features: [
@@ -395,23 +399,27 @@ export const apps: App[] = [
         zh: '幽靈私訊閱讀：查看私訊不標記已讀，消除社交焦慮'
       },
       {
-        en: 'Story HD Downloader: Save high-resolution story photos and videos with one click',
-        zh: '限動高清一鍵下載：觀看限時動態時一鍵保存最高畫質照片與原檔影片'
+        en: 'Pro Carousel Batch Downloader: Save all photos & videos in carousel posts (License Key required)',
+        zh: 'Pro 輪播多圖批量下載：貼文包含多圖時一鍵連續自動打包儲存（需 Pro 授權碼啟用）'
       },
       {
-        en: 'Privacy First: No personal data tracking or telemetry',
-        zh: '極致隱私：不追蹤個人行為與帳號資料'
+        en: 'Custom Keyword Filter: Block unwanted posts containing blacklist keywords (Pro feature)',
+        zh: '自訂關鍵字黑名單：隱藏含有指定黑名單詞彙的動態貼文（Pro 專屬特權）'
       },
       {
-        en: 'Zero Ads: Distraction-free clean social experience',
-        zh: '純淨無廣告：捨棄雜亂廣告干擾，回歸最純粹的瀏覽'
+        en: 'AdBlock & Auto-Mute: Block sponsored posts and prevent sudden blasting audio',
+        zh: '廣告過濾與預設靜音：自動去除贊助動態，影音載入時自動靜音防止公共場合爆音'
+      },
+      {
+        en: '100% Client-Side Privacy: Zero telemetry, zero tracking, run entirely local',
+        zh: '100% 本機端端對端隱私：不收集任何帳號密碼或瀏覽記錄，純本地運作'
       }
     ],
-    technologies: ['Android', 'Kotlin', 'Reverse Engineering', 'Jetpack Compose'],
-    downloadUrl: 'https://downloads.kkleon.com/GhostGram.apk',
+    technologies: ['Chrome Extension (Manifest V3)', 'JavaScript', 'Web APIs', 'declarativeNetRequest'],
+    downloadUrl: 'https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp',
     githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
-    releaseDate: '2026-09'
+    releaseDate: '2026-10'
   }
 ];
 

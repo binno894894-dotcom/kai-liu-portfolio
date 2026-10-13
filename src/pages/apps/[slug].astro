@@ -81,29 +81,49 @@ const isGhostGram = app.slug === 'ghostgram';
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-3 pt-2">
-        <a
-          href={app.downloadUrl}
-          download
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-sm"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          <span data-lang="en">Download APK</span>
-          <span data-lang="zh">下載 APK</span>
-        </a>
+        {!isGhostGram ? (
+          <a
+            href={app.downloadUrl}
+            download
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-sm"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span data-lang="en">Download APK</span>
+            <span data-lang="zh">下載 APK</span>
+          </a>
+        ) : (
+          <a
+            href="https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-sm"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="4" />
+              <line x1="21.17" y1="8" x2="12" y2="8" />
+              <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+              <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+            </svg>
+            <span data-lang="en">Get on Chrome Web Store</span>
+            <span data-lang="zh">前往 Chrome 線上商店安裝</span>
+          </a>
+        )}
 
         {isGhostGram && (
           <a
-            href="/GhostGram-Chrome-Extension.zip"
-            download="GhostGram-Chrome-Extension.zip"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FF2D55] via-[#E1306C] to-[#F77737] text-white text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-md shadow-pink-500/20"
+            href="https://ko-fi.com/kkleon"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 text-white text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-md shadow-amber-500/20"
           >
-            <span class="text-base">🧩</span>
-            <span data-lang="en">Chrome Extension</span>
-            <span data-lang="zh">下載 Chrome 擴充套件</span>
+            <span class="text-base">🧋</span>
+            <span data-lang="en">Unlock Pro License Key</span>
+            <span data-lang="zh">贊助獲取 Pro 授權碼</span>
           </a>
         )}
 
@@ -619,20 +639,34 @@ const isGhostGram = app.slug === 'ghostgram';
                 </p>
               </div>
 
-              <!-- Download Extension Zip Button -->
-              <div class="shrink-0">
+              <!-- Official Chrome Web Store & Pro License Buttons -->
+              <div class="shrink-0 flex flex-col sm:flex-row gap-2.5">
                 <a
-                  href="/GhostGram-Chrome-Extension.zip"
-                  download="GhostGram-Chrome-Extension.zip"
-                  class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF2D55] via-[#E1306C] to-[#F77737] text-white font-bold text-xs sm:text-sm shadow-md shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all select-none"
+                  href="https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-bold text-xs sm:text-sm shadow-md hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all select-none"
                 >
                   <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="4" />
+                    <line x1="21.17" y1="8" x2="12" y2="8" />
+                    <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                    <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
                   </svg>
-                  <span data-lang="en">Download Extension (.zip)</span>
-                  <span data-lang="zh">下載擴充功能 (.zip)</span>
+                  <span data-lang="en">Chrome Web Store</span>
+                  <span data-lang="zh">Chrome 線上商店</span>
+                </a>
+
+                <a
+                  href="https://ko-fi.com/kkleon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all select-none"
+                >
+                  <span class="text-base">🧋</span>
+                  <span data-lang="en">Get Pro License Key</span>
+                  <span data-lang="zh">贊助獲取 Pro 授權碼</span>
                 </a>
               </div>
             </div>
@@ -642,36 +676,36 @@ const isGhostGram = app.slug === 'ghostgram';
               <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
                 <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono font-bold text-sm flex items-center justify-center">01</div>
                 <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                  <span data-lang="en">Unzip Package</span>
-                  <span data-lang="zh">下載並解壓縮</span>
+                  <span data-lang="en">Install from Store</span>
+                  <span data-lang="zh">商店一鍵安裝</span>
                 </h4>
                 <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
-                  <span data-lang="en">Click download above to get the zip file, and extract it to any convenient folder on your computer.</span>
-                  <span data-lang="zh">點擊上方按鈕下載 GhostGram-Chrome-Extension.zip，並在電腦上解壓縮成資料夾。</span>
+                  <span data-lang="en">Click above to open Chrome Web Store and add GhostGram to your browser instantly.</span>
+                  <span data-lang="zh">點擊上方按鈕前往 Google Chrome 官方線上應用程式商店，點擊「加到 Chrome」即可安裝。</span>
                 </p>
               </div>
 
               <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
                 <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono font-bold text-sm flex items-center justify-center">02</div>
                 <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                  <span data-lang="en">Open Extension Page</span>
-                  <span data-lang="zh">開啟擴充功能管理</span>
+                  <span data-lang="en">Open Instagram</span>
+                  <span data-lang="zh">開啟 Instagram</span>
                 </h4>
                 <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
-                  <span data-lang="en">In Chrome or Edge address bar, go to <code class="text-pink-600 dark:text-pink-400 bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded font-mono">chrome://extensions</code> and turn on "Developer mode" in the top right.</span>
-                  <span data-lang="zh">在瀏覽器網址列輸入 <code class="text-pink-600 dark:text-pink-400 bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded font-mono">chrome://extensions</code>，並開啟右上角的「開發人員模式」。</span>
+                  <span data-lang="en">Navigate to instagram.com. The floating 👻 Ghost orb will appear at the bottom-right corner.</span>
+                  <span data-lang="zh">前往 Instagram 網頁版，畫面右下角會自動出現 👻 懸浮中控按鈕，已讀與廣告全自動攔截。</span>
                 </p>
               </div>
 
               <div class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/30 space-y-2">
-                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-sm flex items-center justify-center">03</div>
+                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono font-bold text-sm flex items-center justify-center">03</div>
                 <h4 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                  <span data-lang="en">Load Unpacked</span>
-                  <span data-lang="zh">載入未封裝項目</span>
+                  <span data-lang="en">Enter Pro Key</span>
+                  <span data-lang="zh">輸入授權碼解鎖</span>
                 </h4>
                 <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
-                  <span data-lang="en">Click "Load unpacked" on the top left, select the unzipped folder, and you are done! Open instagram.com to enjoy.</span>
-                  <span data-lang="zh">點擊左上角的「載入未封裝項目」，選取剛才解壓縮的資料夾。完成！打開 instagram.com 即可全自動隱身。</span>
+                  <span data-lang="en">Support via Ko-fi to obtain your Pro License Key. Enter it in the panel to unlock batch carousel download &amp; keyword filter!</span>
+                  <span data-lang="zh">透過 Ko-fi 請作者喝珍奶贊助，即可獲得 Pro 專屬金鑰。於控制台輸入即可永久解鎖多圖批量下載與動態過濾！</span>
                 </p>
               </div>
             </div>
