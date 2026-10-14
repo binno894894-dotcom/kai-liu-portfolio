@@ -35,6 +35,7 @@ export interface App {
   featureCards?: AppFeatureCard[];
   technologies: string[];
   downloadUrl: string;
+  chromeStoreUrl?: string;
   githubUrl: string;
   playStoreUrl?: string;
   releaseDate: string;
@@ -424,7 +425,8 @@ export const apps: App[] = [
       }
     ],
     technologies: ['Chrome Extension (Manifest V3)', 'JavaScript', 'Web APIs', 'declarativeNetRequest'],
-    downloadUrl: 'https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp',
+    downloadUrl: 'https://downloads.kkleon.com/GhostGram.apk',
+    chromeStoreUrl: 'https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp',
     githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-10'
