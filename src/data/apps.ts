@@ -349,18 +349,18 @@ export const apps: App[] = [
     slug: 'ghostgram',
     name: 'GhostGram',
     tagline: {
-      en: 'Browse Instagram in stealth mode. View stories and read DMs without leaving a trace.',
-      zh: '電腦瀏覽器隱身與增強套件。悄悄無痕看限動、私訊防已讀、去廣告、高清多圖一鍵打包。'
+      en: 'Browse Instagram in stealth mode. View stories & DMs unseen, track non-followers, and bulk download HD media.',
+      zh: '電腦瀏覽器隱身與增強套件。悄悄無痕看限動、私訊防已讀、去廣告、未回追偵測與主頁媒體打包。'
     },
     shortTagline: {
       en: 'Chrome Extension & Stealth Instagram Tool',
       zh: 'Chrome 擴充套件 & 隱私無痕社群工具'
     },
     description: {
-      en: 'A privacy-first browsing enhancement suite for Instagram (Chrome Extension & Android). Watch stories anonymously without seen receipts, read incoming messages without triggering the \'seen\' indicator, and unlock Pro bulk media downloads.',
-      zh: '專為極致隱私打造的 Instagram 電腦瀏覽器擴充功能與社群增強套件。在電腦打開 Instagram 自動無痕觀看限時動態、私訊防已讀、過濾動態贊助廣告、影音預設靜音，並支援 Pro 專屬多圖輪播一鍵批量打包與自訂黑名單關鍵字過濾。'
+      en: 'A privacy-first browsing enhancement suite for Instagram (Chrome Extension & Web). Watch stories anonymously without seen receipts, read incoming messages without triggering the seen indicator, and unlock Pro non-followers tracker, safe native unfollow & bulk media downloads.',
+      zh: '專為極致隱私打造的 Instagram 電腦瀏覽器擴充功能與社群增強套件。在電腦打開 Instagram 自動無痕觀看限時動態、私訊防已讀、過濾動態贊助廣告、影音預設靜音，並支援 Pro 專屬未回追帳號自動檢測、官方主頁原生 100% 退追、多圖輪播一鍵批量打包與自訂黑名單關鍵字過濾。'
     },
-    version: '1.5.0',
+    version: '1.6.0',
     platform: 'Chrome Extension / Web',
     icon: '/apps/ghostgram-icon.png',
     screenshots: [
@@ -400,8 +400,8 @@ export const apps: App[] = [
         zh: 'Pro 未回追帳號偵測器：自動掃描比對找出沒回關你的幽靈帳號，支援白名單保護（Pro 專屬）'
       },
       {
-        en: 'Pro Safe Auto-Unfollow: Unfollow non-followers with human-like delays to prevent IG bans (Pro)',
-        zh: 'Pro 安全批次退追：內建模擬真人隨機間隔與安全上限，防止觸發 IG 風控封鎖（Pro 專屬）'
+        en: 'Pro Safe Auto-Unfollow: Unfollow non-followers with 100% native profile button or batch safe human delays (Pro)',
+        zh: 'Pro 安全退追：支援官方個人主頁原生按鈕 100% 成功自動退追，或批次模擬真人隨機間隔退追（Pro 專屬）'
       },
       {
         en: 'Pro Followers to CSV Exporter: One-click export your followers & following lists to CSV (Pro)',
