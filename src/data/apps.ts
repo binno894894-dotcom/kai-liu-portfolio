@@ -36,7 +36,7 @@ export interface App {
   technologies: string[];
   downloadUrl: string;
   chromeStoreUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   playStoreUrl?: string;
   releaseDate: string;
 }
@@ -203,7 +203,6 @@ export const apps: App[] = [
     ],
     technologies: ['Android', 'Kotlin', 'Jetpack Compose', 'Material 3'],
     downloadUrl: 'https://downloads.kkleon.com/DeviceBox.apk',
-    githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-09'
   },
@@ -341,7 +340,6 @@ export const apps: App[] = [
     ],
     technologies: ['Android', 'Kotlin', 'Jetpack Compose', 'SensorManager'],
     downloadUrl: 'https://downloads.kkleon.com/FocusNow.apk',
-    githubUrl: 'https://github.com/binno894894-dotcom',
     playStoreUrl: '',
     releaseDate: '2026-09'
   },
@@ -427,8 +425,7 @@ export const apps: App[] = [
     technologies: ['Chrome Extension (Manifest V3)', 'JavaScript', 'Web APIs', 'declarativeNetRequest'],
     downloadUrl: 'https://downloads.kkleon.com/GhostGram.apk',
     chromeStoreUrl: 'https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp',
-    githubUrl: 'https://github.com/binno894894-dotcom',
-    playStoreUrl: '',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.kkleon.ghostgram',
     releaseDate: '2026-10'
   }
 ];

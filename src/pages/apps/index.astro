@@ -84,19 +84,34 @@ import { apps } from '../../data/apps';
                   <span class="text-zinc-400">&rarr;</span>
                 </a>
 
-                <a
-                  href={app.downloadUrl}
-                  download
-                  class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 active:scale-[0.97] transition-all"
-                >
-                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  <span data-lang="en">Download APK</span>
-                  <span data-lang="zh">下載 APK</span>
-                </a>
+                {app.slug === 'ghostgram' ? (
+                  <a
+                    href={app.playStoreUrl || "https://play.google.com/store/apps/details?id=com.kkleon.ghostgram"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 active:scale-[0.97] transition-all"
+                  >
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.609 1.814L13.793 12 3.61 22.186c-.33-.2-.544-.567-.544-1.02V2.834c0-.453.214-.82.544-1.02zM15.207 13.414l2.586 2.586-11.83 6.76 9.244-9.346zm2.586-5.414l-2.586 2.586-9.244-9.346 11.83 6.76zm1.386 1.386l2.36 1.348c.615.352.615.924 0 1.276l-2.36 1.348-2.122-2.122 2.122-1.85z"/>
+                    </svg>
+                    <span data-lang="en">Google Play</span>
+                    <span data-lang="zh">Google Play 商店</span>
+                  </a>
+                ) : (
+                  <a
+                    href={app.downloadUrl}
+                    download
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs font-semibold hover:opacity-90 active:scale-[0.97] transition-all"
+                  >
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span data-lang="en">Download APK</span>
+                    <span data-lang="zh">下載 APK</span>
+                  </a>
+                )}
               </div>
 
             </div>
