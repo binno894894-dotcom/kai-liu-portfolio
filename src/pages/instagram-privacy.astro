@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="創業筆記助手 Instagram 留言資料索取服務的資料處理、保存與刪除說明。" />
+    <link rel="canonical" href="https://kkleon.com/instagram-privacy/" />
+    <title>創業筆記助手｜隱私政策與資料刪除</title>
+  </head>
+  <body>
+    <main>
+      <a href="/">KAI LIU</a>
+      <header>
+        <p class="eyebrow">INSTAGRAM · 創業筆記助手</p>
+        <h1>隱私政策與資料刪除</h1>
+        <p>更新日期：2026 年 10 月 27 日</p>
+        <p>本說明適用於由 Kai Liu 經營、服務 Instagram 帳號 <a href="https://www.instagram.com/stu6yen9ineer/">@stu6yen9ineer</a> 的「創業筆記助手」應用程式。服務使用 Meta 官方 API，協助索取資料的觀眾取得相關連結。</p>
+      </header>
+      <section>
+        <h2>處理哪些資料，為什麼需要</h2>
+        <p>服務接收已授權 Instagram 帳號的留言通知，處理留言文字、留言與貼文編號、留言者的 Instagram 識別碼及事件時間，用於辨識指定貼文與關鍵字。符合條件時，服務可傳送資料連結私訊，並依設定公開回覆留言。模擬模式只記錄事件，不傳送訊息。</p>
+        <p>為執行回覆、避免重複傳送及排查問題，服務保存必要的帳號、貼文、留言與留言者識別碼、任務建立時間及回覆狀態。任務資料不保存完整留言文字。本服務不要求觀眾提供 Instagram 密碼或存取權杖，也不將任務資料出售或用於廣告受眾建立。</p>
+      </section>
+      <section>
+        <h2>服務供應商與保護措施</h2>
+        <p>資料由 Meta／Instagram 及 Cloudflare Workers、Durable Objects 等必要供應商處理，可能在不同國家或地區運算與保存。各供應商亦適用其自身隱私政策。帳號存取權杖及應用程式密鑰使用加密的服務端 Secret 儲存；服務會驗證 Webhook 簽章。</p>
+        <p>為維護服務，Cloudflare 亦會保存請求時間、網址、狀態碼、網路來源及其他技術紀錄；這些來源通常是傳送通知的 Meta 伺服器，不代表觀眾本人裝置的位置。</p>
+      </section>
+      <section>
+        <h2>資料保存</h2>
+        <p>主動儲存中的任務與防重複記錄以約 30 天為清理目標，由定期作業清理。平台紀錄與備份依 Cloudflare 實際方案及保留機制處理，可能在主動資料刪除後暫時保留。因系統中斷或維護造成清理延遲時，會在作業恢復後處理。</p>
+        <p>本服務的任務記錄與 Instagram 中的訊息、公開留言是不同資料。刪除任務記錄不會自動移除 Instagram 中已發送的內容；平台內容可另依 Instagram 提供的功能管理。</p>
+      </section>
+      <section id="deletion">
+        <h2>要求查詢、刪除或停止使用</h2>
+        <p>你可以從相關 Instagram 帳號私訊 <a href="https://www.instagram.com/stu6yen9ineer/">@stu6yen9ineer</a>，或寄信至 <a href="mailto:binno894894@gmail.com">binno894894@gmail.com</a>，註明「創業筆記助手資料刪除」。請提供相關 Instagram 用戶名稱及貼文連結，方便定位記錄。</p>
+        <p>經營者會先確認請求者與相關帳號的關係，再處理服務可控制範圍內的資料。請勿提供密碼、存取權杖或證件。你也可以停止留言索取資料，或使用 Instagram 的封鎖、限制及訊息管理功能。</p>
+      </section>
+      <section>
+        <h2>政策更新與聯絡</h2>
+        <p>本頁會隨服務功能及資料處理方式更新，並標示更新日期。對資料處理或刪除有疑問，請透過上述 Instagram 帳號或電子郵件聯絡 Kai Liu。</p>
+        <p><a href="https://privacycenter.instagram.com/policy/">Meta 隱私政策</a> · <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 隱私政策</a></p>
+      </section>
+    </main>
+  </body>
+</html>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f2e9; color: #222923; font: 17px/1.9 system-ui, sans-serif; }
+  main { max-width: 820px; margin: auto; padding: 48px 24px 80px; }
+  a { color: #38662f; text-underline-offset: 4px; overflow-wrap: anywhere; }
+  header { margin-top: 40px; }
+  .eyebrow { color: #526b46; font-size: 13px; letter-spacing: 2px; font-weight: 700; }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.3; }
+  h2 { font-size: 23px; line-height: 1.5; }
+  section { margin-top: 36px; border-top: 1px solid #c7cdbd; padding-top: 16px; }
+  #deletion { scroll-margin-top: 24px; }
+</style>
