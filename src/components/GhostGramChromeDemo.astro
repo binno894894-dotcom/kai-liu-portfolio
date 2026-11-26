@@ -1,0 +1,47 @@
+---
+const previews = [
+  {
+    id: 'stories',
+    title: { en: 'Watch Stories privately', zh: '隱身看限動' },
+    caption: {
+      en: 'Open the floating ghost in the bottom-right corner of Instagram Web and check that Ghost Mode for Stories is on.',
+      zh: '在 Instagram 網頁版點右下角的幽靈圖示，確認「隱身看限動」已開啟。',
+    },
+  },
+  {
+    id: 'messages',
+    title: { en: 'Control DM read receipts', zh: '私訊防已讀' },
+    caption: {
+      en: 'In the same panel, check that Unseen Direct Messages is on before opening a supported chat.',
+      zh: '在同一個面板確認「防訊息已讀」已開啟，再打開支援的聊天室。',
+    },
+  },
+];
+---
+
+<section id="chrome-demo" class="scroll-mt-24 space-y-4" aria-labelledby="chrome-demo-title">
+  <h4 id="chrome-demo-title" class="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+    <span data-lang="en">See how GhostGram works in Chrome</span>
+    <span data-lang="zh">在 Chrome 上怎麼用 GhostGram</span>
+  </h4>
+  <div class="space-y-3">
+    {previews.map((preview, index) => (
+      <details name="ghostgram-chrome-demo" open={index === 0} class="overflow-hidden rounded-2xl border border-zinc-200 bg-white/70 dark:border-zinc-800 dark:bg-zinc-900/50">
+        <summary class="cursor-pointer px-4 py-3 text-sm font-semibold text-zinc-900 marker:text-pink-500 dark:text-zinc-100 sm:px-5">
+          <span data-lang="en">{preview.title.en}</span>
+          <span data-lang="zh">{preview.title.zh}</span>
+        </summary>
+        <div class="space-y-3 px-4 pb-4 sm:px-5 sm:pb-5">
+          <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+            <span data-lang="en">{preview.caption.en}</span>
+            <span data-lang="zh">{preview.caption.zh}</span>
+          </p>
+          <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
+            <img data-lang="en" src={`/apps/ghostgram/chrome-${preview.id}.webp`} width="1280" height="800" loading="lazy" decoding="async" alt="" class="block h-auto w-full" />
+            <img data-lang="zh" src={`/apps/ghostgram/chrome-${preview.id}-zh.webp`} width="1280" height="800" loading="lazy" decoding="async" alt="" class="block h-auto w-full" />
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

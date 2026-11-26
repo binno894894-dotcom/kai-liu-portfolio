@@ -1,6 +1,7 @@
 ---
 // apps/[slug].astro - Dynamic Showcase for Device Box and FocusNow with Bilingual i18n
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GhostGramChromeDemo from '../../components/GhostGramChromeDemo.astro';
 import { apps, type App } from '../../data/apps';
 
 export function getStaticPaths() {
@@ -18,6 +19,7 @@ const { app } = Astro.props;
 const isDeviceBox = app.slug === 'device-box';
 const isFocusNow = app.slug === 'focus-now';
 const isGhostGram = app.slug === 'ghostgram';
+const chromeCampaign = 'utm_source=kkleon.com&utm_medium=referral&utm_campaign=ghostgram_chrome';
 ---
 
 <BaseLayout
@@ -115,7 +117,7 @@ const isGhostGram = app.slug === 'ghostgram';
             <!-- 電腦板 WEB：可直接前往 Chrome 線上商店安裝擴充套件 -->
             <a
               id="gg-desktop-store-btn"
-              href="https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp"
+              href={`${app.chromeStoreUrl}?${chromeCampaign}&utm_content=hero`}
               target="_blank"
               rel="noopener noreferrer"
               class="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-all shadow-sm whitespace-nowrap"
@@ -129,6 +131,10 @@ const isGhostGram = app.slug === 'ghostgram';
               </svg>
               <span data-lang="en">Chrome Web Store</span>
               <span data-lang="zh">前往 Chrome 商店安裝</span>
+            </a>
+            <a href="#chrome-demo" class="hidden items-center rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-pink-500 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 sm:inline-flex">
+              <span data-lang="en">See the Chrome demo</span>
+              <span data-lang="zh">看 Chrome 示範</span>
             </a>
           </>
         )}
@@ -640,8 +646,8 @@ const isGhostGram = app.slug === 'ghostgram';
                   <span data-lang="zh">GhostGram Chrome / Edge 擴充功能</span>
                 </h3>
                 <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-                  <span data-lang="en">Install once, browse in stealth forever. Automatically blocks Instagram story and DM seen receipts in background.</span>
-                  <span data-lang="zh">安裝一次，終身隱身！在電腦打開 Instagram 自動常駐攔截，無需任何額外操作。</span>
+                  <span data-lang="en">Manage Story views and DM read receipts separately on Instagram Web from the floating GhostGram panel.</span>
+                  <span data-lang="zh">在 Instagram 網頁版點開 GhostGram 懸浮面板，分別設定限動隱身與私訊防已讀。</span>
                 </p>
               </div>
 
@@ -663,7 +669,7 @@ const isGhostGram = app.slug === 'ghostgram';
 
                 <!-- Desktop Chrome Store -->
                 <a
-                  href="https://chromewebstore.google.com/detail/ghostgram-%E2%80%94-instagram-%E9%9A%B1%E8%BA%AB/njhdojnacgboobonbbpncljokkoafbhp"
+                  href={`${app.chromeStoreUrl}?${chromeCampaign}&utm_content=demo`}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="hidden sm:inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-bold text-sm shadow-md hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all select-none"
@@ -691,6 +697,8 @@ const isGhostGram = app.slug === 'ghostgram';
                 </a>
               </div>
             </div>
+
+            <GhostGramChromeDemo />
 
             <!-- 3 Steps Installation Guide -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
